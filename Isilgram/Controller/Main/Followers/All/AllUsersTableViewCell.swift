@@ -14,19 +14,13 @@ import FirebaseUI
 class AllUsersTableViewCell: UITableViewCell {
     @IBOutlet weak var ivPhoto: CSMImageView!
     @IBOutlet weak var lblFullName: CSMLabel!
-    @IBOutlet weak var lblEmail: CSMLabel!
-    @IBOutlet weak var lblBirthDate: CSMLabel!
     @IBOutlet weak var btnFollow: CSMButton!
     
     //MARK: Variables and Components
     let user = Auth.auth().currentUser
-    
     let dbFollowers = Firestore.firestore().collection(Constant.dbRefFollowers)
-    
     let stgUser = Storage.storage().reference()
-    
-    var context: UIViewController!
-    
+    var context: UIViewController!    
     var objUserBE: UserBE!{
         didSet{
             self.updateData()
@@ -46,29 +40,21 @@ class AllUsersTableViewCell: UITableViewCell {
     
     //MARK: IBAction Functions
     @IBAction func follow(_ sender: Any) {
-        self.followUser()
+        let data: [String: Any] = [ "\(objUserBE.id)": true ]
+        
+        dbFollowers.document(user!.uid).updateData(data) { (err) in
+            if let err = err {
+                Function.showAlertError(context: self.context, err: err)
+            }
+        }
     }
     
     
     //MARK: Created Functions
     func updateData(){
         self.ivPhoto.clipsToBounds = true
-        
         self.lblFullName.text = "\(self.objUserBE.fullName)"
-        self.lblEmail.text = "Email: \(self.objUserBE.email)"
-        self.lblBirthDate.text = "Cumpleaños: \(self.objUserBE.birthDate)"
-        
         let refStorage = stgUser.child(objUserBE.id).child("perfil")
         self.ivPhoto.sd_setImage(with: refStorage)
-    }
-    
-    func followUser() {
-        let data: [String: Any] = [ "\(objUserBE.id)": true ]
-         
-        dbFollowers.document(user!.uid).updateData(data) { (err) in
-            if let err = err {
-                Function.showAlertError(context: self.context, err: err)
-            }
-        }
     }
 }

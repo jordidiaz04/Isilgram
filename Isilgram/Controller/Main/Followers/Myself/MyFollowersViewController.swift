@@ -16,11 +16,8 @@ class MyFollowersViewController: UIViewController {
     
     //MARK: Variables and Components
     var dbUsers: CollectionReference!
-    
     var dbFollowers: CollectionReference!
-    
     var arrayUsers = [UserBE]()
-    
     var arrayFollowers = [String]()
     
     
@@ -58,7 +55,6 @@ class MyFollowersViewController: UIViewController {
             }
         }
     }
-    
     func listAllUsers() {
         if arrayFollowers.count > 0 {
             for item in arrayFollowers {
@@ -83,7 +79,6 @@ class MyFollowersViewController: UIViewController {
             self.tblUsers.reloadData()
         }
     }
-    
     func listDataTable() {
         if arrayUsers.count == arrayFollowers.count {
             self.tblUsers.reloadData()
@@ -95,11 +90,9 @@ extension MyFollowersViewController: UITableViewDelegate, UITableViewDataSource{
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
-    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.arrayUsers.count
-    }
-    
+    }    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cellIdentifier = "MyUsersTableViewCell"
         let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as! MyUsersTableViewCell
