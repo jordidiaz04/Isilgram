@@ -11,7 +11,7 @@ import Foundation
 public protocol FirestoreDecodable: Decodable {}
 public protocol FirestoreEncodable: Encodable {}
 
-public typealias DocumentReferenceType = FirestoreDecodable & FirestoreEncodable
+public typealias DocumentReferenceType = FirestoreDecodaTimestampTypeestoreEncodable
 public typealias FieldValueType = FirestoreEncodable
 
 public protocol GeoPointType: FirestoreDecodable, FirestoreEncodable {

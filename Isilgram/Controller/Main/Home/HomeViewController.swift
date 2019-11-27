@@ -23,11 +23,14 @@ class HomeViewController: UIViewController {
                 print("error: \(error)")
             } else {
                 for document in snapshot!.documents {
-
-                    
- 
-                    
-                    
+                    print(document)
+                    var post = PostBE()
+                    do {
+                        post = try! FirestoreDecoder().decode(PostBE.self, from: document.data())
+                        print(post)
+                    } catch let error {
+                        print(error)
+                    }
                 }
             }
             }
