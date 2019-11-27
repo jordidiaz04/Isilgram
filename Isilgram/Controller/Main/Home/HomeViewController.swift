@@ -23,7 +23,11 @@ class HomeViewController: UIViewController {
                 print("error: \(error)")
             } else {
                 for document in snapshot!.documents {
-                    print(document)
+
+                    
+ 
+                    
+                    
                 }
             }
             }
