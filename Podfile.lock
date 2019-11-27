@@ -128,7 +128,7 @@ DEPENDENCIES:
   - FirebaseUI/Storage
 
 SPEC REPOS:
-  trunk:
+  https://github.com/cocoapods/specs.git:
     - BoringSSL-GRPC
     - FacebookCore
     - FacebookLogin
@@ -182,4 +182,4 @@ SPEC CHECKSUMS:
 
 PODFILE CHECKSUM: 3e8ea3582df17b33bd59bbfdcfe3791eff115887
 
-COCOAPODS: 1.8.4
+COCOAPODS: 1.7.5
