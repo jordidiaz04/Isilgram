@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import FirebaseFirestore
+import FirebaseStorage
 
 class HomeViewController: UIViewController {
 
@@ -14,5 +16,18 @@ class HomeViewController: UIViewController {
         super.viewDidLoad()
         self.navigationItem.hidesBackButton = true
         Function.removeLastestViews(context: self)
+        let db = Firestore.firestore()
+        db.collection("posts")
+            .getDocuments { (snapshot, error) in
+            if let error = error{
+                print("error: \(error)")
+            } else {
+                for document in snapshot!.documents {
+                    print(document)
+                }
+            }
+            }
+        
+        print("entrasdxasxasxase!")
     }
 }
