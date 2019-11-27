@@ -14,20 +14,13 @@ import FirebaseUI
 class AccountViewController: UIViewController {
     @IBOutlet weak var ivPhoto: CSMImageView!
     @IBOutlet weak var lblNickname: CSMLabel!
-    @IBOutlet weak var lblFullName: CSMLabel!
-    @IBOutlet weak var lblBirthDate: CSMLabel!
-    @IBOutlet weak var lblPhone: CSMLabel!
-    @IBOutlet weak var lblEmail: CSMLabel!
-    @IBOutlet weak var btnEdit: CSMButton!
-    @IBOutlet weak var btnLogout: CSMButton!
     @IBOutlet weak var scrollView: UIScrollView!
+    @IBOutlet weak var clvPosts: UICollectionView!
     
     
     //MARK: Variables and Components
     var dbUsers: CollectionReference!
-    
     var user: User!
-    
     var stgUser: StorageReference!
     
     
@@ -39,48 +32,10 @@ class AccountViewController: UIViewController {
         user = Auth.auth().currentUser
         stgUser = Storage.storage().reference()
         
-        getUserInformation()
-        
         ivPhoto.clipsToBounds = true
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
+        
+        getUserInformation()
         loadUserPhoto()
-    }
-    
-    
-    //MARK: Selector Functions
-    @objc func keyboardWillShow(notification: NSNotification) {
-        let userInfo = notification.userInfo!
-        var keyboardFrame: CGRect = (userInfo[UIResponder.keyboardFrameBeginUserInfoKey] as! NSValue).cgRectValue
-        keyboardFrame = self.view.convert(keyboardFrame, from: nil)
-        
-        var contentInset:UIEdgeInsets = self.scrollView.contentInset
-        contentInset.bottom = keyboardFrame.size.height
-        scrollView.contentInset = contentInset
-    }
-    
-    @objc func keyboardWillHide(notification: NSNotification) {
-        let contentInset:UIEdgeInsets = UIEdgeInsets.zero
-        scrollView.contentInset = contentInset
-    }
-    
-    
-    //MARK: IBAction Functions    
-    @IBAction func logOut(_ sender: Any) {
-        let acYes = UIAlertAction(title: "Si", style: .default) { (action) in
-            do {
-                try! Auth.auth().signOut()
-                self.parent?.parent?.performSegue(withIdentifier: "NavMainToLogin", sender: nil)
-            }
-        }
-        let acNo = UIAlertAction(title: "No", style: .default) { (action) in
-            return
-        }
-        
-        Function.showAlert(context: self, title: Constant.title_1, message: "¿Desea cerrar su sesión?", action1: acYes, action2: acNo)
     }
     
     
@@ -111,15 +66,9 @@ class AccountViewController: UIViewController {
             }
         }
     }
-    
     func loadUserInformation(obj: UserBE) {
         lblNickname.text = obj.nickName
-        lblFullName.text = obj.fullName
-        lblBirthDate.text = obj.birthDate
-        lblPhone.text = obj.phone
-        lblEmail.text = obj.email
     }
-    
     func loadUserPhoto() {
         let refStorage = stgUser.child(user.uid).child("perfil")
         self.ivPhoto.sd_setImage(with: refStorage)

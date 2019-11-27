@@ -24,17 +24,11 @@ class EditAccountViewController: UIViewController {
     
     //MARK: Variables and Components
     var isChangeImage: Bool!
-    
     var objUserBE: UserBE!
-    
     var dbUsers: CollectionReference!
-    
     var user: User!
-    
     var stgUser: StorageReference!
-    
     var imagePickerController: UIImagePickerController?
-    
     var defaultImageUrl: URL?
     
     lazy var datePicker: UIDatePicker = {
@@ -44,7 +38,6 @@ class EditAccountViewController: UIViewController {
         
         return datePicker;
     }()
-    
     lazy var toolbar: UIToolbar = {
         let toolbar = UIToolbar(frame: CGRect(x: 0, y: 0, width: view.frame.width, height: 40))
         toolbar.barStyle = .blackTranslucent
@@ -61,8 +54,7 @@ class EditAccountViewController: UIViewController {
         toolbar.setItems([btnToday, btnFlex, btnTitle, btnFlex, btnDone], animated: true)
         
         return toolbar
-    }()
-    
+    }()    
     lazy var formatter: DateFormatter = {
         let formatter = DateFormatter()
         formatter.dateStyle = DateFormatter.Style.medium
@@ -90,7 +82,6 @@ class EditAccountViewController: UIViewController {
         txtBirthDate.inputAccessoryView = toolbar
         txtBirthDate.text = formatter.string(from: Date())
     }
-    
     override func viewWillAppear(_ animated: Bool) {
         isChangeImage = false
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
@@ -108,21 +99,17 @@ class EditAccountViewController: UIViewController {
         contentInset.bottom = keyboardFrame.size.height
         scrollView.contentInset = contentInset
     }
-    
     @objc func keyboardWillHide(notification: NSNotification) {
         let contentInset:UIEdgeInsets = UIEdgeInsets.zero
         scrollView.contentInset = contentInset
     }
-    
     @objc func changeValueDatePicker(sender: UIDatePicker) {
         txtBirthDate.text = formatter.string(from: sender.date)
     }
-    
     @objc func pressTodayButton(_ sender: UIBarButtonItem) {
         txtBirthDate.text = formatter.string(from: Date())
         txtBirthDate.resignFirstResponder()
     }
-    
     @objc func pressDoneButton(_ sender: UIBarButtonItem) {
         txtBirthDate.resignFirstResponder()
     }
@@ -141,6 +128,12 @@ class EditAccountViewController: UIViewController {
         
         let alert = UIAlertController.init(title: "Seleccione una opción", message: nil, preferredStyle: .actionSheet)
         
+        if UIImagePickerController.isSourceTypeAvailable(.camera) {
+            alert.addAction(UIAlertAction.init(title: "Camera", style: .default, handler: { (_) in
+                self.presentImagePicker(controller: self.imagePickerController!, source: .camera)
+            }))
+        }
+        
         if UIImagePickerController.isSourceTypeAvailable(.photoLibrary) {
             alert.addAction(UIAlertAction.init(title: "Galeria", style: .default, handler: { (_) in
                 self.presentImagePicker(controller: self.imagePickerController!, source: .photoLibrary)
@@ -151,7 +144,6 @@ class EditAccountViewController: UIViewController {
         
         self.present(alert, animated: true)
     }
-    
     @IBAction func save(_ sender: Any) {
         if checkFields() {
             Function.enableDisableButton(button: btnSave, value: false)
@@ -170,6 +162,19 @@ class EditAccountViewController: UIViewController {
             }
         }
     }
+    @IBAction func logOut(_ sender: Any) {
+        let acYes = UIAlertAction(title: "Si", style: .default) { (action) in
+            do {
+                try! Auth.auth().signOut()
+                self.parent?.parent?.performSegue(withIdentifier: "NavMainToLogin", sender: nil)
+            }
+        }
+        let acNo = UIAlertAction(title: "No", style: .default) { (action) in
+            return
+        }
+        
+        Function.showAlert(context: self, title: Constant.title_1, message: "¿Desea cerrar su sesión?", action1: acYes, action2: acNo)
+    }
     
     
     //MARK: Created Functions
@@ -178,7 +183,6 @@ class EditAccountViewController: UIViewController {
         controller.sourceType = source
         self.present(controller, animated: true)
     }
-    
     func getUserInformation() {
         let menssageNoInformation = "No se pudo obtener información del usuario"
         guard let user = user else {
@@ -205,7 +209,6 @@ class EditAccountViewController: UIViewController {
             }
         }
     }
-    
     func loadUserInformation() {
         txtNickName.text = objUserBE.nickName
         txtFullName.text = objUserBE.fullName
@@ -213,12 +216,10 @@ class EditAccountViewController: UIViewController {
         txtPhone.text = objUserBE.phone
         txtEmail.text = objUserBE.email
     }
-    
     func loadUserPhoto() {
         let refStorage = stgUser.child(user.uid).child("perfil")
         self.ivPhoto.sd_setImage(with: refStorage)
     }
-    
     func checkFields() -> Bool {
         var result = true
         if Function.checkTextFieldEmpty(textField: txtFullName) { result = false }
@@ -229,7 +230,6 @@ class EditAccountViewController: UIViewController {
         
         return result
     }
-    
     func checkUserAuthentication() {
         if user == nil {
             Function.enableDisableButton(button: btnSave, value: true)
@@ -244,7 +244,6 @@ class EditAccountViewController: UIViewController {
             }
         }
     }
-    
     func checkAuthenticationProvider() {
         if let providerData = user?.providerData {
             for userInfo in providerData {
@@ -258,7 +257,6 @@ class EditAccountViewController: UIViewController {
             }
         }
     }
-    
     func updateAuthenticationInformation(email: String) {
         user.updateEmail(to: email) { (err) in
             if err == nil {
@@ -269,7 +267,6 @@ class EditAccountViewController: UIViewController {
             }
         }
     }
-    
     func updateUserInformation(uid: String) {
         let data = try! FirestoreEncoder().encode(objUserBE)
         dbUsers.document(uid).setData(data) { (err) in
@@ -284,7 +281,6 @@ class EditAccountViewController: UIViewController {
             }
         }
     }
-    
     func uploadPhotoToStorage() {
         let data = ivPhoto.image?.jpegData(compressionQuality: 1.0)
         let metaData = StorageMetadata()
@@ -312,7 +308,6 @@ extension EditAccountViewController: UIImagePickerControllerDelegate, UINavigati
             picker.delegate = nil
         }
     }
-    
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
         picker.dismiss(animated: true) {
             picker.delegate = nil
