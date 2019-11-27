@@ -57,6 +57,7 @@
         <!--Login View Controller-->
         <scene sceneID="ZAL-vA-mCJ">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="6aS-Ey-fci" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <viewController storyboardIdentifier="Login" id="Yku-3X-i3z" customClass="LoginViewController" customModule="Isilgram" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Me6-mU-BA6">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
@@ -298,7 +299,6 @@
                         <segue destination="Otp-ZX-nqe" kind="show" identifier="NavLoginToMain" id="4Qz-YW-B7o"/>
                     </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="6aS-Ey-fci" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1410" y="78.16901408450704"/>
         </scene>
@@ -844,6 +844,6 @@
         <image name="logo_white" width="133.33332824707031" height="80.666664123535156"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="szh-Vz-Gyo"/>
+        <segue reference="nmh-Ws-0tY"/>
     </inferredMetricsTieBreakers>
 </document>
