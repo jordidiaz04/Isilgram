@@ -22,17 +22,17 @@
                                 <rect key="frame" x="0.0" y="64" width="320" height="747"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CFL-Il-0bV">
-                                        <rect key="frame" x="0.0" y="0.0" width="320" height="860"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="795.5"/>
                                         <subviews>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="img_default" translatesAutoresizingMaskIntoConstraints="NO" id="Bop-EJ-IOf" customClass="CSMImageView" customModule="Isilgram" customModuleProvider="target">
-                                                <rect key="frame" x="100" y="10" width="120" height="120"/>
+                                                <rect key="frame" x="115" y="10" width="90" height="90"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="width" constant="120" id="AcW-z1-oEO"/>
-                                                    <constraint firstAttribute="height" constant="120" id="vc2-VG-Kwi"/>
+                                                    <constraint firstAttribute="width" constant="90" id="AcW-z1-oEO"/>
+                                                    <constraint firstAttribute="height" constant="90" id="vc2-VG-Kwi"/>
                                                 </constraints>
                                                 <userDefinedRuntimeAttributes>
                                                     <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                                        <real key="value" value="25"/>
+                                                        <real key="value" value="45"/>
                                                     </userDefinedRuntimeAttribute>
                                                     <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
                                                         <color key="value" red="0.0" green="0.35799917949999999" blue="0.72613334659999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -43,7 +43,7 @@
                                                 </userDefinedRuntimeAttributes>
                                             </imageView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nombre del usuario" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="F9z-27-y1L" customClass="CSMLabel" customModule="Isilgram" customModuleProvider="target">
-                                                <rect key="frame" x="20" y="138" width="280" height="20"/>
+                                                <rect key="frame" x="20" y="108" width="280" height="20"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="20" id="Wmh-oL-gA2"/>
                                                 </constraints>
@@ -51,7 +51,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="osH-s9-OKD" customClass="CSMLabel" customModule="Isilgram" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="174" width="320" height="6"/>
+                                                <rect key="frame" x="0.0" y="144" width="320" height="6"/>
                                                 <color key="backgroundColor" red="0.0" green="0.35799917949999999" blue="0.72613334659999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="6" id="F1x-gk-nph"/>
@@ -59,21 +59,56 @@
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
+                                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="cNX-p7-5fO">
+                                                <rect key="frame" x="0.0" y="150" width="320" height="645.5"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="dBb-fS-7Lm">
+                                                    <size key="itemSize" width="130" height="162"/>
+                                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                                </collectionViewFlowLayout>
+                                                <cells>
+                                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="kW3-B5-5et">
+                                                        <rect key="frame" x="0.0" y="0.0" width="130" height="162"/>
+                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
+                                                            <rect key="frame" x="0.0" y="0.0" width="130" height="162"/>
+                                                            <autoresizingMask key="autoresizingMask"/>
+                                                            <subviews>
+                                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="img_default" translatesAutoresizingMaskIntoConstraints="NO" id="omF-dR-Mzf" customClass="CSMImageView" customModule="Isilgram" customModuleProvider="target">
+                                                                    <rect key="frame" x="0.0" y="0.0" width="130" height="162"/>
+                                                                </imageView>
+                                                            </subviews>
+                                                        </view>
+                                                        <constraints>
+                                                            <constraint firstItem="omF-dR-Mzf" firstAttribute="top" secondItem="kW3-B5-5et" secondAttribute="top" id="CIp-jY-PjP"/>
+                                                            <constraint firstItem="omF-dR-Mzf" firstAttribute="leading" secondItem="kW3-B5-5et" secondAttribute="leading" id="JOd-h8-h5i"/>
+                                                            <constraint firstAttribute="trailing" secondItem="omF-dR-Mzf" secondAttribute="trailing" id="U6M-2I-pAg"/>
+                                                            <constraint firstAttribute="bottom" secondItem="omF-dR-Mzf" secondAttribute="bottom" id="Ve6-vG-QRg"/>
+                                                        </constraints>
+                                                    </collectionViewCell>
+                                                </cells>
+                                            </collectionView>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstItem="osH-s9-OKD" firstAttribute="leading" secondItem="CFL-Il-0bV" secondAttribute="leading" id="35H-et-Pir"/>
+                                            <constraint firstAttribute="bottom" secondItem="cNX-p7-5fO" secondAttribute="bottom" id="Dgx-KA-zOi"/>
                                             <constraint firstAttribute="trailing" secondItem="osH-s9-OKD" secondAttribute="trailing" id="H7d-XL-jWq"/>
                                             <constraint firstItem="Bop-EJ-IOf" firstAttribute="centerX" secondItem="CFL-Il-0bV" secondAttribute="centerX" id="HVg-1U-acc"/>
                                             <constraint firstAttribute="trailing" secondItem="F9z-27-y1L" secondAttribute="trailing" constant="20" id="NbE-fq-5Xd"/>
                                             <constraint firstItem="F9z-27-y1L" firstAttribute="leading" secondItem="CFL-Il-0bV" secondAttribute="leading" constant="20" id="Pn7-du-Hcy"/>
                                             <constraint firstItem="osH-s9-OKD" firstAttribute="top" secondItem="F9z-27-y1L" secondAttribute="bottom" constant="16" id="Vtl-Ln-Xme"/>
                                             <constraint firstItem="F9z-27-y1L" firstAttribute="top" secondItem="Bop-EJ-IOf" secondAttribute="bottom" constant="8" id="fgt-4q-s2s"/>
+                                            <constraint firstItem="cNX-p7-5fO" firstAttribute="leading" secondItem="CFL-Il-0bV" secondAttribute="leading" id="jA3-jE-csV"/>
+                                            <constraint firstAttribute="trailing" secondItem="cNX-p7-5fO" secondAttribute="trailing" id="nmc-DE-QLa"/>
+                                            <constraint firstItem="cNX-p7-5fO" firstAttribute="top" secondItem="osH-s9-OKD" secondAttribute="bottom" id="q7X-MW-EUO"/>
                                             <constraint firstItem="Bop-EJ-IOf" firstAttribute="top" secondItem="CFL-Il-0bV" secondAttribute="top" constant="10" id="sFf-8t-iEM"/>
                                         </constraints>
                                     </view>
                                 </subviews>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="CFL-Il-0bV" secondAttribute="trailing" id="3Bf-WP-rEs"/>
                                     <constraint firstItem="CFL-Il-0bV" firstAttribute="leading" secondItem="Hj0-P1-hLn" secondAttribute="leading" id="BpU-fF-cXO"/>
@@ -86,7 +121,7 @@
                         </subviews>
                         <color key="backgroundColor" red="0.0" green="0.35799917949999999" blue="0.72613334659999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="CFL-Il-0bV" firstAttribute="height" secondItem="1o6-n5-06Q" secondAttribute="height" priority="250" id="4R8-ss-pbx"/>
+                            <constraint firstItem="CFL-Il-0bV" firstAttribute="height" secondItem="1o6-n5-06Q" secondAttribute="height" multiplier="0.925" priority="250" id="4R8-ss-pbx"/>
                             <constraint firstItem="Hj0-P1-hLn" firstAttribute="trailing" secondItem="mzM-Pk-Exp" secondAttribute="trailing" id="67c-K2-i6d"/>
                             <constraint firstItem="CFL-Il-0bV" firstAttribute="width" secondItem="1o6-n5-06Q" secondAttribute="width" id="Rq4-1Q-8jH"/>
                             <constraint firstItem="Hj0-P1-hLn" firstAttribute="leading" secondItem="mzM-Pk-Exp" secondAttribute="leading" id="S6u-3O-vqY"/>
@@ -95,7 +130,13 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="mzM-Pk-Exp"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Perfil" id="W2R-m4-66J"/>
+                    <navigationItem key="navigationItem" title="Perfil" id="W2R-m4-66J">
+                        <barButtonItem key="rightBarButtonItem" title="Editar" style="done" id="57T-LM-6M7">
+                            <connections>
+                                <segue destination="bBK-5z-ry5" kind="show" id="oqz-fj-xdG"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <size key="freeformSize" width="320" height="860"/>
                     <connections>
                         <outlet property="ivPhoto" destination="Bop-EJ-IOf" id="OOb-21-N7k"/>
@@ -112,24 +153,24 @@
             <objects>
                 <viewController id="bBK-5z-ry5" customClass="EditAccountViewController" customModule="Isilgram" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="3cq-qM-RVx">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="700"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="760"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7wO-9x-uUs">
-                                <rect key="frame" x="0.0" y="20" width="320" height="680"/>
+                                <rect key="frame" x="0.0" y="64" width="320" height="647"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fno-2S-dpr">
-                                        <rect key="frame" x="0.0" y="0.0" width="320" height="591.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="612"/>
                                         <subviews>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="img_default" translatesAutoresizingMaskIntoConstraints="NO" id="bml-eP-V7Y" customClass="CSMImageView" customModule="Isilgram" customModuleProvider="target">
-                                                <rect key="frame" x="100" y="10" width="120" height="120"/>
+                                                <rect key="frame" x="115" y="10" width="90" height="90"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="120" id="EMS-Mq-gL6"/>
-                                                    <constraint firstAttribute="width" constant="120" id="uPn-mp-oHT"/>
+                                                    <constraint firstAttribute="height" constant="90" id="EMS-Mq-gL6"/>
+                                                    <constraint firstAttribute="width" constant="90" id="uPn-mp-oHT"/>
                                                 </constraints>
                                                 <userDefinedRuntimeAttributes>
                                                     <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                                        <real key="value" value="25"/>
+                                                        <real key="value" value="45"/>
                                                     </userDefinedRuntimeAttribute>
                                                     <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
                                                         <real key="value" value="1"/>
@@ -140,7 +181,7 @@
                                                 </userDefinedRuntimeAttributes>
                                             </imageView>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tXF-U2-1UZ" customClass="CSMButton" customModule="Isilgram" customModuleProvider="target">
-                                                <rect key="frame" x="100" y="130" width="120" height="30"/>
+                                                <rect key="frame" x="115" y="100" width="90" height="30"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="30" id="gpj-lw-dqv"/>
                                                 </constraints>
@@ -151,7 +192,7 @@
                                                 </connections>
                                             </button>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Nombre completo" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="LE3-wm-dNF" customClass="CSMTextField" customModule="Isilgram" customModuleProvider="target">
-                                                <rect key="frame" x="20" y="184" width="280" height="50"/>
+                                                <rect key="frame" x="20" y="154" width="280" height="50"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <color key="tintColor" red="0.0" green="0.35799917949999999" blue="0.72613334659999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
@@ -179,7 +220,7 @@
                                                 </userDefinedRuntimeAttributes>
                                             </textField>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Nickname" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="yKS-vu-EU2" customClass="CSMTextField" customModule="Isilgram" customModuleProvider="target">
-                                                <rect key="frame" x="20" y="250" width="280" height="50"/>
+                                                <rect key="frame" x="20" y="220" width="280" height="50"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <color key="tintColor" red="0.0" green="0.35799917949999999" blue="0.72613334659999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
@@ -204,7 +245,7 @@
                                                 </userDefinedRuntimeAttributes>
                                             </textField>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Fecha cumpleaños" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="3dx-2Y-KZD" customClass="CSMTextField" customModule="Isilgram" customModuleProvider="target">
-                                                <rect key="frame" x="20" y="316" width="280" height="50"/>
+                                                <rect key="frame" x="20" y="286" width="280" height="50"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <color key="tintColor" red="0.0" green="0.35799917949999999" blue="0.72613334659999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
@@ -229,7 +270,7 @@
                                                 </userDefinedRuntimeAttributes>
                                             </textField>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Teléfono" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="4pb-5B-umx" customClass="CSMTextField" customModule="Isilgram" customModuleProvider="target">
-                                                <rect key="frame" x="20" y="382" width="280" height="50"/>
+                                                <rect key="frame" x="20" y="352" width="280" height="50"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <color key="tintColor" red="0.0" green="0.35799917949999999" blue="0.72613334659999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
@@ -254,7 +295,7 @@
                                                 </userDefinedRuntimeAttributes>
                                             </textField>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Correo electrónico" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="V9J-OX-s5L" customClass="CSMTextField" customModule="Isilgram" customModuleProvider="target">
-                                                <rect key="frame" x="20" y="448" width="280" height="50"/>
+                                                <rect key="frame" x="20" y="418" width="280" height="50"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <color key="tintColor" red="0.0" green="0.35799917949999999" blue="0.72613334659999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
@@ -279,7 +320,7 @@
                                                 </userDefinedRuntimeAttributes>
                                             </textField>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ESX-DD-QvS" customClass="CSMButton" customModule="Isilgram" customModuleProvider="target">
-                                                <rect key="frame" x="20" y="522" width="280" height="50"/>
+                                                <rect key="frame" x="20" y="492" width="280" height="50"/>
                                                 <color key="backgroundColor" red="0.0" green="0.35799917949999999" blue="0.72613334659999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="50" id="rrF-Ad-FCI"/>
@@ -297,16 +338,32 @@
                                                     <action selector="save:" destination="bBK-5z-ry5" eventType="touchUpInside" id="l6d-E3-mX5"/>
                                                 </connections>
                                             </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2EN-Ki-VM3" customClass="CSMButton" customModule="Isilgram" customModuleProvider="target">
+                                                <rect key="frame" x="20" y="552" width="280" height="50"/>
+                                                <color key="backgroundColor" red="0.0" green="0.35686274509999999" blue="0.72549019609999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
+                                                <state key="normal" title="Cerrar sesión">
+                                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </state>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                        <real key="value" value="25"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                            </button>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstItem="3dx-2Y-KZD" firstAttribute="height" secondItem="yKS-vu-EU2" secondAttribute="height" id="03f-pA-pnL"/>
+                                            <constraint firstItem="2EN-Ki-VM3" firstAttribute="top" secondItem="ESX-DD-QvS" secondAttribute="bottom" constant="10" id="0wl-Nd-Cpe"/>
                                             <constraint firstItem="tXF-U2-1UZ" firstAttribute="top" secondItem="bml-eP-V7Y" secondAttribute="bottom" id="1Bf-xK-cIC"/>
                                             <constraint firstAttribute="trailing" secondItem="LE3-wm-dNF" secondAttribute="trailing" constant="20" id="4Md-Ay-0by"/>
                                             <constraint firstItem="3dx-2Y-KZD" firstAttribute="top" secondItem="yKS-vu-EU2" secondAttribute="bottom" constant="16" id="5Oh-TX-6L2"/>
                                             <constraint firstAttribute="trailing" secondItem="ESX-DD-QvS" secondAttribute="trailing" constant="20" id="6UT-OJ-H6z"/>
+                                            <constraint firstItem="2EN-Ki-VM3" firstAttribute="height" secondItem="ESX-DD-QvS" secondAttribute="height" id="8SS-oj-Azj"/>
                                             <constraint firstItem="3dx-2Y-KZD" firstAttribute="leading" secondItem="yKS-vu-EU2" secondAttribute="leading" id="BK7-LY-1sY"/>
                                             <constraint firstItem="4pb-5B-umx" firstAttribute="trailing" secondItem="3dx-2Y-KZD" secondAttribute="trailing" id="Dl3-Sp-8Wi"/>
+                                            <constraint firstItem="2EN-Ki-VM3" firstAttribute="trailing" secondItem="ESX-DD-QvS" secondAttribute="trailing" id="Fzb-VU-XZc"/>
                                             <constraint firstItem="ESX-DD-QvS" firstAttribute="top" secondItem="V9J-OX-s5L" secondAttribute="bottom" constant="24" id="HwI-Oy-CLz"/>
                                             <constraint firstItem="V9J-OX-s5L" firstAttribute="height" secondItem="4pb-5B-umx" secondAttribute="height" id="Idd-OK-U0R"/>
                                             <constraint firstItem="ESX-DD-QvS" firstAttribute="leading" secondItem="fno-2S-dpr" secondAttribute="leading" constant="20" id="Jyx-Sj-yQr"/>
@@ -320,9 +377,11 @@
                                             <constraint firstItem="tXF-U2-1UZ" firstAttribute="leading" secondItem="bml-eP-V7Y" secondAttribute="leading" id="dPH-DQ-3fZ"/>
                                             <constraint firstItem="4pb-5B-umx" firstAttribute="leading" secondItem="3dx-2Y-KZD" secondAttribute="leading" id="gcP-6V-92h"/>
                                             <constraint firstItem="tXF-U2-1UZ" firstAttribute="trailing" secondItem="bml-eP-V7Y" secondAttribute="trailing" id="lbd-dO-d5b"/>
+                                            <constraint firstAttribute="bottom" secondItem="2EN-Ki-VM3" secondAttribute="bottom" constant="10" id="n6h-dg-Au3"/>
                                             <constraint firstItem="V9J-OX-s5L" firstAttribute="top" secondItem="4pb-5B-umx" secondAttribute="bottom" constant="16" id="oar-SH-hXC"/>
                                             <constraint firstItem="4pb-5B-umx" firstAttribute="top" secondItem="3dx-2Y-KZD" secondAttribute="bottom" constant="16" id="p7P-rT-jBY"/>
                                             <constraint firstItem="yKS-vu-EU2" firstAttribute="height" secondItem="LE3-wm-dNF" secondAttribute="height" id="tmV-7V-hUZ"/>
+                                            <constraint firstItem="2EN-Ki-VM3" firstAttribute="leading" secondItem="ESX-DD-QvS" secondAttribute="leading" id="tre-g5-6rm"/>
                                             <constraint firstItem="bml-eP-V7Y" firstAttribute="top" secondItem="fno-2S-dpr" secondAttribute="top" constant="10" id="vry-Dm-ytV"/>
                                             <constraint firstItem="4pb-5B-umx" firstAttribute="height" secondItem="3dx-2Y-KZD" secondAttribute="height" id="wQd-on-bUK"/>
                                             <constraint firstItem="yKS-vu-EU2" firstAttribute="trailing" secondItem="LE3-wm-dNF" secondAttribute="trailing" id="wvU-gi-EcE"/>
@@ -330,6 +389,7 @@
                                         </constraints>
                                     </view>
                                 </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstItem="fno-2S-dpr" firstAttribute="top" secondItem="7wO-9x-uUs" secondAttribute="top" id="DBN-p0-4Gj"/>
                                     <constraint firstAttribute="bottom" secondItem="fno-2S-dpr" secondAttribute="bottom" id="chp-y7-wc3"/>
@@ -352,7 +412,7 @@
                         <viewLayoutGuide key="safeArea" id="efY-qT-F7B"/>
                     </view>
                     <navigationItem key="navigationItem" title="Edita perfil" id="RJj-2J-pfs"/>
-                    <size key="freeformSize" width="320" height="700"/>
+                    <size key="freeformSize" width="320" height="760"/>
                     <connections>
                         <outlet property="btnSave" destination="ESX-DD-QvS" id="BQr-0x-KaY"/>
                         <outlet property="ivPhoto" destination="bml-eP-V7Y" id="BOR-lH-9w8"/>
@@ -366,7 +426,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QIL-Hc-HVj" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3241.875" y="284.15492957746477"/>
+            <point key="canvasLocation" x="3248" y="261"/>
         </scene>
         <!--Login-->
         <scene sceneID="IXG-aP-WLM">
@@ -389,22 +449,22 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JcK-Oj-nOv">
                                 <rect key="frame" x="0.0" y="64" width="320" height="455"/>
                                 <subviews>
-                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="RVh-87-wle" customClass="CSMTableView" customModule="Isilgram" customModuleProvider="target">
+                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="RVh-87-wle" customClass="CSMTableView" customModule="Isilgram" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="455"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <prototypes>
-                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="MyUsersTableViewCell" rowHeight="158" id="b04-n6-dht" customClass="MyUsersTableViewCell" customModule="Isilgram" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="28" width="320" height="158"/>
+                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="MyUsersTableViewCell" rowHeight="66" id="b04-n6-dht" customClass="MyUsersTableViewCell" customModule="Isilgram" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="28" width="320" height="66"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="b04-n6-dht" id="vne-pR-Q30">
-                                                    <rect key="frame" x="0.0" y="0.0" width="320" height="157.5"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="320" height="66"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <subviews>
                                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="img_default" translatesAutoresizingMaskIntoConstraints="NO" id="Bld-pd-eHu" customClass="CSMImageView" customModule="Isilgram" customModuleProvider="target">
-                                                            <rect key="frame" x="15" y="19" width="120" height="120"/>
+                                                            <rect key="frame" x="16" y="8" width="50" height="50"/>
                                                             <constraints>
-                                                                <constraint firstAttribute="width" constant="120" id="2Zf-Hk-U2E"/>
-                                                                <constraint firstAttribute="height" constant="120" id="9Ei-5d-gKY"/>
+                                                                <constraint firstAttribute="height" constant="50" id="IrO-jd-Ycz"/>
+                                                                <constraint firstAttribute="width" constant="50" id="oqe-Z6-8WV"/>
                                                             </constraints>
                                                             <userDefinedRuntimeAttributes>
                                                                 <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
@@ -419,26 +479,16 @@
                                                             </userDefinedRuntimeAttributes>
                                                         </imageView>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nombre" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hSF-at-6lQ" customClass="CSMLabel" customModule="Isilgram" customModuleProvider="target">
-                                                            <rect key="frame" x="151" y="19" width="98" height="20.5"/>
+                                                            <rect key="frame" x="82" y="8" width="172" height="20.5"/>
                                                             <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="17"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Correo" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lFE-0t-AHb" customClass="CSMLabel" customModule="Isilgram" customModuleProvider="target">
-                                                            <rect key="frame" x="151" y="55.5" width="98" height="18"/>
-                                                            <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="15"/>
-                                                            <nil key="highlightedColor"/>
-                                                        </label>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Cumpleaños" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="btY-O2-sLM" customClass="CSMLabel" customModule="Isilgram" customModuleProvider="target">
-                                                            <rect key="frame" x="151" y="89.5" width="98" height="18"/>
-                                                            <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="15"/>
-                                                            <nil key="highlightedColor"/>
-                                                        </label>
                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="U1k-oy-2eW" customClass="CSMButton" customModule="Isilgram" customModuleProvider="target">
-                                                            <rect key="frame" x="265" y="19" width="40" height="40"/>
+                                                            <rect key="frame" x="270" y="15.5" width="35" height="35"/>
                                                             <color key="backgroundColor" red="0.5568627451" green="0.5568627451" blue="0.57647058819999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             <constraints>
-                                                                <constraint firstAttribute="width" constant="40" id="FZY-vr-cXS"/>
-                                                                <constraint firstAttribute="height" constant="40" id="eDG-0l-coW"/>
+                                                                <constraint firstAttribute="height" constant="35" id="ugD-dZ-DPT"/>
+                                                                <constraint firstAttribute="width" constant="35" id="x5v-nH-gvX"/>
                                                             </constraints>
                                                             <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <state key="normal" image="ic_unfollow"/>
@@ -448,28 +498,20 @@
                                                         </button>
                                                     </subviews>
                                                     <constraints>
-                                                        <constraint firstItem="lFE-0t-AHb" firstAttribute="trailing" secondItem="hSF-at-6lQ" secondAttribute="trailing" id="6Br-ie-riL"/>
-                                                        <constraint firstItem="U1k-oy-2eW" firstAttribute="trailing" secondItem="vne-pR-Q30" secondAttribute="trailingMargin" id="7AN-6t-yIC"/>
-                                                        <constraint firstItem="btY-O2-sLM" firstAttribute="trailing" secondItem="lFE-0t-AHb" secondAttribute="trailing" id="BWh-tt-K0p"/>
-                                                        <constraint firstItem="btY-O2-sLM" firstAttribute="top" secondItem="lFE-0t-AHb" secondAttribute="bottom" constant="16" id="KSf-vA-a91"/>
-                                                        <constraint firstItem="Bld-pd-eHu" firstAttribute="leading" secondItem="vne-pR-Q30" secondAttribute="leadingMargin" id="MZ2-lP-gum"/>
-                                                        <constraint firstItem="hSF-at-6lQ" firstAttribute="leading" secondItem="Bld-pd-eHu" secondAttribute="trailing" constant="16" id="MfD-6q-dj4"/>
-                                                        <constraint firstItem="U1k-oy-2eW" firstAttribute="top" secondItem="hSF-at-6lQ" secondAttribute="top" id="QIJ-pn-rko"/>
-                                                        <constraint firstItem="U1k-oy-2eW" firstAttribute="leading" secondItem="hSF-at-6lQ" secondAttribute="trailing" constant="16" id="RUr-jK-48e"/>
-                                                        <constraint firstItem="lFE-0t-AHb" firstAttribute="leading" secondItem="hSF-at-6lQ" secondAttribute="leading" id="Zfm-eO-CVc"/>
-                                                        <constraint firstAttribute="bottomMargin" secondItem="btY-O2-sLM" secondAttribute="bottom" constant="39.5" id="j7q-dH-MEc"/>
-                                                        <constraint firstItem="lFE-0t-AHb" firstAttribute="top" secondItem="hSF-at-6lQ" secondAttribute="bottom" constant="16" id="mzG-sA-3qh"/>
-                                                        <constraint firstItem="btY-O2-sLM" firstAttribute="leading" secondItem="lFE-0t-AHb" secondAttribute="leading" id="puu-or-hvi"/>
-                                                        <constraint firstItem="Bld-pd-eHu" firstAttribute="top" secondItem="vne-pR-Q30" secondAttribute="topMargin" constant="8" id="tCO-zT-b7y"/>
-                                                        <constraint firstItem="hSF-at-6lQ" firstAttribute="top" secondItem="Bld-pd-eHu" secondAttribute="top" id="zap-cE-b8c"/>
+                                                        <constraint firstItem="hSF-at-6lQ" firstAttribute="top" secondItem="Bld-pd-eHu" secondAttribute="top" id="3jZ-lO-D2l"/>
+                                                        <constraint firstItem="Bld-pd-eHu" firstAttribute="leading" secondItem="vne-pR-Q30" secondAttribute="leading" constant="16" id="4lA-Ru-etM"/>
+                                                        <constraint firstItem="hSF-at-6lQ" firstAttribute="leading" secondItem="Bld-pd-eHu" secondAttribute="trailing" constant="16" id="4zD-Kb-qGR"/>
+                                                        <constraint firstItem="U1k-oy-2eW" firstAttribute="trailing" secondItem="vne-pR-Q30" secondAttribute="trailingMargin" id="HaH-Sg-Whx"/>
+                                                        <constraint firstItem="U1k-oy-2eW" firstAttribute="centerY" secondItem="Bld-pd-eHu" secondAttribute="centerY" id="iDS-UP-D0e"/>
+                                                        <constraint firstItem="U1k-oy-2eW" firstAttribute="leading" secondItem="hSF-at-6lQ" secondAttribute="trailing" constant="16" id="lqm-VE-ac9"/>
+                                                        <constraint firstItem="Bld-pd-eHu" firstAttribute="top" secondItem="vne-pR-Q30" secondAttribute="top" constant="8" id="n71-27-kgf"/>
+                                                        <constraint firstAttribute="bottom" secondItem="Bld-pd-eHu" secondAttribute="bottom" constant="8" id="oFa-f7-1o6"/>
                                                     </constraints>
                                                 </tableViewCellContentView>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <connections>
                                                     <outlet property="btnUnfollow" destination="U1k-oy-2eW" id="N6J-af-IRz"/>
                                                     <outlet property="ivPhoto" destination="Bld-pd-eHu" id="mVu-zb-nyg"/>
-                                                    <outlet property="lblBirthDate" destination="btY-O2-sLM" id="3Cv-Pz-ozs"/>
-                                                    <outlet property="lblEmail" destination="lFE-0t-AHb" id="yGu-Tb-X97"/>
                                                     <outlet property="lblFullName" destination="hSF-at-6lQ" id="QEB-io-K8l"/>
                                                 </connections>
                                             </tableViewCell>
@@ -525,37 +567,22 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Wi4-ok-68w">
                                 <rect key="frame" x="0.0" y="64" width="320" height="455"/>
                                 <subviews>
-                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="EtY-cn-Xsm" customClass="CSMTableView" customModule="Isilgram" customModuleProvider="target">
+                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="EtY-cn-Xsm" customClass="CSMTableView" customModule="Isilgram" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="455"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <prototypes>
-                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="AllUsersTableViewCell" rowHeight="158" id="Llt-RA-GJs" customClass="AllUsersTableViewCell" customModule="Isilgram" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="28" width="320" height="158"/>
+                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="AllUsersTableViewCell" rowHeight="66" id="Llt-RA-GJs" customClass="AllUsersTableViewCell" customModule="Isilgram" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="28" width="320" height="66"/>
                                                 <autoresizingMask key="autoresizingMask"/>
-                                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Llt-RA-GJs" id="7ak-0X-AVb">
-                                                    <rect key="frame" x="0.0" y="0.0" width="320" height="157.5"/>
+                                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Llt-RA-GJs" id="7ak-0X-AVb">
+                                                    <rect key="frame" x="0.0" y="0.0" width="320" height="66"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <subviews>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nombre" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qub-jI-aTf" customClass="CSMLabel" customModule="Isilgram" customModuleProvider="target">
-                                                            <rect key="frame" x="151" y="19" width="98" height="20.5"/>
-                                                            <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="17"/>
-                                                            <nil key="highlightedColor"/>
-                                                        </label>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Correo" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fpx-iN-9ug" customClass="CSMLabel" customModule="Isilgram" customModuleProvider="target">
-                                                            <rect key="frame" x="151" y="55.5" width="98" height="18"/>
-                                                            <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="15"/>
-                                                            <nil key="highlightedColor"/>
-                                                        </label>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Cumpleaños" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nMI-yX-tBX" customClass="CSMLabel" customModule="Isilgram" customModuleProvider="target">
-                                                            <rect key="frame" x="151" y="89.5" width="98" height="18"/>
-                                                            <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="15"/>
-                                                            <nil key="highlightedColor"/>
-                                                        </label>
                                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="img_default" translatesAutoresizingMaskIntoConstraints="NO" id="q9V-mK-dGn" customClass="CSMImageView" customModule="Isilgram" customModuleProvider="target">
-                                                            <rect key="frame" x="15" y="19" width="120" height="120"/>
+                                                            <rect key="frame" x="16" y="8.5" width="50" height="50"/>
                                                             <constraints>
-                                                                <constraint firstAttribute="width" constant="120" id="Nwb-8e-FBu"/>
-                                                                <constraint firstAttribute="height" constant="120" id="xg0-1e-ct8"/>
+                                                                <constraint firstAttribute="width" constant="50" id="8xJ-wQ-1wu"/>
+                                                                <constraint firstAttribute="height" constant="50" id="Hsx-ef-o5d"/>
                                                             </constraints>
                                                             <userDefinedRuntimeAttributes>
                                                                 <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
@@ -569,12 +596,17 @@
                                                                 </userDefinedRuntimeAttribute>
                                                             </userDefinedRuntimeAttributes>
                                                         </imageView>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nombre" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qub-jI-aTf" customClass="CSMLabel" customModule="Isilgram" customModuleProvider="target">
+                                                            <rect key="frame" x="82" y="8.5" width="172" height="20.5"/>
+                                                            <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="17"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2YA-nI-ihQ" customClass="CSMButton" customModule="Isilgram" customModuleProvider="target">
-                                                            <rect key="frame" x="265" y="19" width="40" height="40"/>
+                                                            <rect key="frame" x="270" y="16" width="35" height="35"/>
                                                             <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             <constraints>
-                                                                <constraint firstAttribute="width" constant="40" id="PlK-y9-0dx"/>
-                                                                <constraint firstAttribute="height" constant="40" id="eHv-hX-xq9"/>
+                                                                <constraint firstAttribute="width" constant="35" id="36t-v8-4Ee"/>
+                                                                <constraint firstAttribute="height" constant="35" id="Rab-JL-LPW"/>
                                                             </constraints>
                                                             <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <state key="normal" image="ic_follow"/>
@@ -585,28 +617,20 @@
                                                     </subviews>
                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <constraints>
-                                                        <constraint firstItem="qub-jI-aTf" firstAttribute="leading" secondItem="q9V-mK-dGn" secondAttribute="trailing" constant="16" id="1Dj-oG-UtP"/>
-                                                        <constraint firstItem="q9V-mK-dGn" firstAttribute="leading" secondItem="7ak-0X-AVb" secondAttribute="leadingMargin" id="IBy-MM-uMs"/>
-                                                        <constraint firstItem="nMI-yX-tBX" firstAttribute="leading" secondItem="Fpx-iN-9ug" secondAttribute="leading" id="J4S-L9-vQf"/>
-                                                        <constraint firstItem="nMI-yX-tBX" firstAttribute="top" secondItem="Fpx-iN-9ug" secondAttribute="bottom" constant="16" id="KCS-kY-WPg"/>
-                                                        <constraint firstItem="nMI-yX-tBX" firstAttribute="trailing" secondItem="Fpx-iN-9ug" secondAttribute="trailing" id="N4F-Py-aGO"/>
-                                                        <constraint firstItem="qub-jI-aTf" firstAttribute="top" secondItem="q9V-mK-dGn" secondAttribute="top" id="P3e-TG-iPV"/>
-                                                        <constraint firstItem="Fpx-iN-9ug" firstAttribute="trailing" secondItem="qub-jI-aTf" secondAttribute="trailing" id="S0s-8F-Q0a"/>
-                                                        <constraint firstItem="Fpx-iN-9ug" firstAttribute="top" secondItem="qub-jI-aTf" secondAttribute="bottom" constant="16" id="Srj-Q1-VXH"/>
-                                                        <constraint firstItem="Fpx-iN-9ug" firstAttribute="leading" secondItem="qub-jI-aTf" secondAttribute="leading" id="Ybr-cJ-0FK"/>
-                                                        <constraint firstItem="2YA-nI-ihQ" firstAttribute="top" secondItem="qub-jI-aTf" secondAttribute="top" id="cdq-eJ-1sS"/>
-                                                        <constraint firstItem="2YA-nI-ihQ" firstAttribute="trailing" secondItem="7ak-0X-AVb" secondAttribute="trailingMargin" id="fsG-W6-tfz"/>
-                                                        <constraint firstItem="q9V-mK-dGn" firstAttribute="top" secondItem="7ak-0X-AVb" secondAttribute="topMargin" constant="8" id="gAP-DQ-HDi"/>
-                                                        <constraint firstAttribute="bottomMargin" secondItem="nMI-yX-tBX" secondAttribute="bottom" constant="39.5" id="r33-iB-tnc"/>
-                                                        <constraint firstItem="2YA-nI-ihQ" firstAttribute="leading" secondItem="qub-jI-aTf" secondAttribute="trailing" constant="16" id="sw7-F7-aDC"/>
+                                                        <constraint firstAttribute="bottom" secondItem="q9V-mK-dGn" secondAttribute="bottom" constant="8" id="2ph-Bd-gVe"/>
+                                                        <constraint firstItem="q9V-mK-dGn" firstAttribute="top" secondItem="7ak-0X-AVb" secondAttribute="top" constant="8" id="Lhq-R0-hM4"/>
+                                                        <constraint firstItem="2YA-nI-ihQ" firstAttribute="trailing" secondItem="7ak-0X-AVb" secondAttribute="trailingMargin" id="cq2-lF-lH7"/>
+                                                        <constraint firstItem="qub-jI-aTf" firstAttribute="leading" secondItem="q9V-mK-dGn" secondAttribute="trailing" constant="16" id="dwv-mZ-Fvc"/>
+                                                        <constraint firstItem="qub-jI-aTf" firstAttribute="top" secondItem="q9V-mK-dGn" secondAttribute="top" id="myY-Vd-oOh"/>
+                                                        <constraint firstItem="2YA-nI-ihQ" firstAttribute="centerY" secondItem="q9V-mK-dGn" secondAttribute="centerY" id="phk-4N-9PN"/>
+                                                        <constraint firstItem="2YA-nI-ihQ" firstAttribute="leading" secondItem="qub-jI-aTf" secondAttribute="trailing" constant="16" id="w4T-on-ifB"/>
+                                                        <constraint firstItem="q9V-mK-dGn" firstAttribute="leading" secondItem="7ak-0X-AVb" secondAttribute="leading" constant="16" id="yEf-jb-czZ"/>
                                                     </constraints>
                                                 </tableViewCellContentView>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <connections>
                                                     <outlet property="btnFollow" destination="2YA-nI-ihQ" id="dJF-3G-dFO"/>
                                                     <outlet property="ivPhoto" destination="q9V-mK-dGn" id="B0a-2E-jxh"/>
-                                                    <outlet property="lblBirthDate" destination="nMI-yX-tBX" id="Rdr-iH-Gzd"/>
-                                                    <outlet property="lblEmail" destination="Fpx-iN-9ug" id="OaF-Hg-Hhj"/>
                                                     <outlet property="lblFullName" destination="qub-jI-aTf" id="C8q-LZ-lNR"/>
                                                 </connections>
                                             </tableViewCell>
@@ -859,6 +883,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="barTintColor" red="0.0" green="0.35686274509999999" blue="0.72549019609999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <color key="selectedImageTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
                     <connections>
@@ -882,6 +908,15 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="0MQ-JF-Vwl">
                         <rect key="frame" x="0.0" y="20" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" red="0.0" green="0.35686274509999999" blue="0.72549019609999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="barTintColor" red="0.0" green="0.35686274509999999" blue="0.72549019609999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </textAttributes>
+                        <textAttributes key="largeTitleTextAttributes">
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </textAttributes>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
@@ -901,6 +936,14 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Sh0-G2-YzA">
                         <rect key="frame" x="0.0" y="20" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="barTintColor" red="0.0" green="0.35686274509999999" blue="0.72549019609999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </textAttributes>
+                        <textAttributes key="largeTitleTextAttributes">
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </textAttributes>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
