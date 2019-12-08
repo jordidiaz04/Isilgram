@@ -10,6 +10,7 @@ import UIKit
 import FirebaseAuth
 import FirebaseFirestore
 import FirebaseUI
+import CodableFirebase
 
 class AccountViewController: UIViewController {
     @IBOutlet weak var ivPhoto: CSMImageView!

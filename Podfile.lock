@@ -5,6 +5,7 @@ PODS:
   - BoringSSL-GRPC/Implementation (0.0.3):
     - BoringSSL-GRPC/Interface (= 0.0.3)
   - BoringSSL-GRPC/Interface (0.0.3)
+  - CodableFirebase (0.2.1)
   - FacebookCore (0.9.0):
     - FBSDKCoreKit (~> 5.0)
   - FacebookLogin (0.9.0):
@@ -119,6 +120,7 @@ PODS:
   - SDWebImage/Core (5.1.1)
 
 DEPENDENCIES:
+  - CodableFirebase
   - FacebookCore
   - FacebookLogin
   - Firebase/Auth
@@ -127,8 +129,9 @@ DEPENDENCIES:
   - FirebaseUI/Storage
 
 SPEC REPOS:
-  https://github.com/cocoapods/specs.git:
+  trunk:
     - BoringSSL-GRPC
+    - CodableFirebase
     - FacebookCore
     - FacebookLogin
     - FBSDKCoreKit
@@ -155,6 +158,7 @@ SPEC REPOS:
 
 SPEC CHECKSUMS:
   BoringSSL-GRPC: db8764df3204ccea016e1c8dd15d9a9ad63ff318
+  CodableFirebase: 0bf201991eeec35eb9fcd987d271ea463cf34a80
   FacebookCore: ba86524b66cfa86d0f8e65d08faa8504a9f732dd
   FacebookLogin: 6cee9fd6e1fe976fe8f7eec199e27b28b14f5d63
   FBSDKCoreKit: d6655a343868d4bb5c29a60859bab07c3be14a0b
@@ -179,6 +183,6 @@ SPEC CHECKSUMS:
   Protobuf: 1097ca58584c8d9be81bfbf2c5ff5975648dd87a
   SDWebImage: 96d7f03415ccb28d299d765f93557ff8a617abd8
 
-PODFILE CHECKSUM: 3e8ea3582df17b33bd59bbfdcfe3791eff115887
+PODFILE CHECKSUM: c0877d380cb24f1b2745949e38d14d67feb24c3b
 
-COCOAPODS: 1.7.5
+COCOAPODS: 1.8.4

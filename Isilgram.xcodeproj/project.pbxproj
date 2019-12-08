@@ -25,12 +25,6 @@
 		36B73419237E1DFF00617293 /* AllUsersTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36B73418237E1DFF00617293 /* AllUsersTableViewCell.swift */; };
 		36B993B22377523C00F73823 /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36B993B12377523C00F73823 /* Constant.swift */; };
 		36B993B4237753BE00F73823 /* Function.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36B993B3237753BE00F73823 /* Function.swift */; };
-		36B993BD2377555400F73823 /* Decoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36B993B62377555400F73823 /* Decoder.swift */; };
-		36B993BE2377555400F73823 /* Encoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36B993B72377555400F73823 /* Encoder.swift */; };
-		36B993BF2377555400F73823 /* FirebaseEncoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36B993B82377555400F73823 /* FirebaseEncoder.swift */; };
-		36B993C02377555400F73823 /* FirestoreEncoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36B993B92377555400F73823 /* FirestoreEncoder.swift */; };
-		36B993C12377555400F73823 /* FirestoreDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36B993BB2377555400F73823 /* FirestoreDecoder.swift */; };
-		36B993C22377555400F73823 /* FirebaseDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36B993BC2377555400F73823 /* FirebaseDecoder.swift */; };
 		36D0BCF9238059D600676C0D /* PublishViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36D0BCF8238059D600676C0D /* PublishViewController.swift */; };
 		36D429EB2378AA8000F1E7D2 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 36D429EA2378AA8000F1E7D2 /* GoogleService-Info.plist */; };
 		36D429ED2378CFA100F1E7D2 /* CSMUIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36D429EC2378CFA100F1E7D2 /* CSMUIViewController.swift */; };
@@ -89,13 +83,6 @@
 		36B73418237E1DFF00617293 /* AllUsersTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllUsersTableViewCell.swift; sourceTree = "<group>"; };
 		36B993B12377523C00F73823 /* Constant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
 		36B993B3237753BE00F73823 /* Function.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Function.swift; sourceTree = "<group>"; };
-		36B993B62377555400F73823 /* Decoder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Decoder.swift; sourceTree = "<group>"; };
-		36B993B72377555400F73823 /* Encoder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Encoder.swift; sourceTree = "<group>"; };
-		36B993B82377555400F73823 /* FirebaseEncoder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirebaseEncoder.swift; sourceTree = "<group>"; };
-		36B993B92377555400F73823 /* FirestoreEncoder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirestoreEncoder.swift; sourceTree = "<group>"; };
-		36B993BA2377555400F73823 /* CodableFirebase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CodableFirebase.h; sourceTree = "<group>"; };
-		36B993BB2377555400F73823 /* FirestoreDecoder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirestoreDecoder.swift; sourceTree = "<group>"; };
-		36B993BC2377555400F73823 /* FirebaseDecoder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirebaseDecoder.swift; sourceTree = "<group>"; };
 		36D0BCF8238059D600676C0D /* PublishViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PublishViewController.swift; sourceTree = "<group>"; };
 		36D429EA2378AA8000F1E7D2 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		36D429EC2378CFA100F1E7D2 /* CSMUIViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CSMUIViewController.swift; sourceTree = "<group>"; };
@@ -256,20 +243,6 @@
 			path = Other;
 			sourceTree = "<group>";
 		};
-		36B993B52377555400F73823 /* CodableFirebase */ = {
-			isa = PBXGroup;
-			children = (
-				36B993B62377555400F73823 /* Decoder.swift */,
-				36B993B72377555400F73823 /* Encoder.swift */,
-				36B993B82377555400F73823 /* FirebaseEncoder.swift */,
-				36B993B92377555400F73823 /* FirestoreEncoder.swift */,
-				36B993BA2377555400F73823 /* CodableFirebase.h */,
-				36B993BB2377555400F73823 /* FirestoreDecoder.swift */,
-				36B993BC2377555400F73823 /* FirebaseDecoder.swift */,
-			);
-			path = CodableFirebase;
-			sourceTree = "<group>";
-		};
 		36D0BCF7238059BA00676C0D /* Publish */ = {
 			isa = PBXGroup;
 			children = (
@@ -281,7 +254,6 @@
 		36D4DFE42376DAB9001194D5 /* Additional */ = {
 			isa = PBXGroup;
 			children = (
-				36B993B52377555400F73823 /* CodableFirebase */,
 				36D4DFE52376DAEB001194D5 /* CoreISIL */,
 				36B993B02377521A00F73823 /* Other */,
 			);
@@ -492,7 +464,6 @@
 				36AE8BC42376281A005B1608 /* Isilgram.xcdatamodeld in Sources */,
 				36D4E0182376DAEB001194D5 /* CSMUserAlters.swift in Sources */,
 				36DB1E382379207800520BA3 /* HomeViewController.swift in Sources */,
-				36B993C12377555400F73823 /* FirestoreDecoder.swift in Sources */,
 				36B73415237E14F400617293 /* MyFollowersViewController.swift in Sources */,
 				36AE8BBA2376281A005B1608 /* AppDelegate.swift in Sources */,
 				36D4E00A2376DAEB001194D5 /* CSMLocalNotificationManager.swift in Sources */,
@@ -526,15 +497,10 @@
 				3611122D237F9B87003875BE /* MyUsersTableViewCell.swift in Sources */,
 				36D4E0132376DAEB001194D5 /* CSMTableView.swift in Sources */,
 				FBE4B036238EBF0D004E9B50 /* PostBE.swift in Sources */,
-				36B993BF2377555400F73823 /* FirebaseEncoder.swift in Sources */,
-				36B993C22377555400F73823 /* FirebaseDecoder.swift in Sources */,
 				36D4E01C2376DAEB001194D5 /* CSMView.swift in Sources */,
 				36D4E00F2376DAEB001194D5 /* CSMJSON.swift in Sources */,
 				36D4E0102376DAEB001194D5 /* CSMAutomaticStatusBarColor.swift in Sources */,
-				36B993BD2377555400F73823 /* Decoder.swift in Sources */,
-				36B993C02377555400F73823 /* FirestoreEncoder.swift in Sources */,
 				36D4E00E2376DAEB001194D5 /* CSMImage.swift in Sources */,
-				36B993BE2377555400F73823 /* Encoder.swift in Sources */,
 				FBE4B034238EBBEF004E9B50 /* PostCollectionViewCell.swift in Sources */,
 				36B73419237E1DFF00617293 /* AllUsersTableViewCell.swift in Sources */,
 				36D4E0052376DAEB001194D5 /* CSMDateManager.swift in Sources */,
