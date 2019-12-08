@@ -7,13 +7,17 @@
 //
 
 import UIKit
+import CodableFirebase
+import FirebaseFirestore
 
 struct PostBE: Codable {
     var id: String? = ""
     var author: String? = ""
+    var authorDetails: UserBE? = UserBE()
     var categories: [String]? = []
-    var dateCreated: String? = ""
+    var dateCreated: Timestamp?
     var likes: [String]? = []
     var message: String? = ""
     var pictures: [String]? = []
 }
+
