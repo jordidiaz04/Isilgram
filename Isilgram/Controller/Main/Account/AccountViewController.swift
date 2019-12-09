@@ -21,8 +21,10 @@ class AccountViewController: UIViewController {
     
     //MARK: Variables and Components
     var dbUsers: CollectionReference!
+    var dbPosts: CollectionReference!
     var user: User!
     var stgUser: StorageReference!
+    var arrayPosts: [PostBE]!
     
     
     //MARK: Override Functions
@@ -30,8 +32,10 @@ class AccountViewController: UIViewController {
         super.viewDidLoad()
         
         dbUsers = Firestore.firestore().collection(Constant.dbRefUser)
+        dbPosts = Firestore.firestore().collection(Constant.dbRefPost)
         user = Auth.auth().currentUser
         stgUser = Storage.storage().reference()
+        arrayPosts = []
         
         ivPhoto.clipsToBounds = true
         
@@ -73,5 +77,29 @@ class AccountViewController: UIViewController {
     func loadUserPhoto() {
         let refStorage = stgUser.child(user.uid).child("perfil")
         self.ivPhoto.sd_setImage(with: refStorage)
+    }
+    func loadMyPosts() {
+        dbPosts.whereField("author", isEqualTo: user.uid).getDocuments { (snapshot, err) in
+            if let err = err {
+                Function.showAlertError(context: self, err: err)
+            }
+            else {
+                for document in snapshot!.documents {
+                    let objPostBE = try! FirestoreDecoder().decode(PostBE.self, from: document.data())
+                    self.arrayPosts.append(objPostBE)
+                }
+                self.clvPosts.reloadData()
+            }
+        }
+    }
+}
+
+extension AccountViewController: UICollectionViewDelegate, UICollectionViewDataSource {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        <#code#>
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        <#code#>
     }
 }
