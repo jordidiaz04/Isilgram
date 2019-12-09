@@ -12,6 +12,7 @@ struct Constant {
     //MARK: Constantes con referencia a la base de datos
     static let dbRefUser = "users"
     static let dbRefFollowers = "followers"
+    static let dbRefPost = "posts"
     
     //MARK: Contantes para validar campos
     static let borderColorTextField = UIColor(red: (0 / 255), green: (144 / 255), blue: (198 / 255), alpha: 1).cgColor
