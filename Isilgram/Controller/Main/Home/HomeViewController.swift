@@ -85,7 +85,7 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource{
         
         let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as! HomeTableViewCell
         cell.post = self.posts[indexPath.row]
-
+        self.tvPrincipal.sizeToFit()
         return cell
     }
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {

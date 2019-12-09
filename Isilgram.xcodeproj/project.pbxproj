@@ -10,6 +10,8 @@
 		033DA8FFC88FC15BABD9B2FF /* Pods_Isilgram.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C192203EED2AFA60E0F0A8E5 /* Pods_Isilgram.framework */; };
 		1F90F62E239C7C0800E3CEEC /* TimestampFU.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F90F62D239C7C0800E3CEEC /* TimestampFU.swift */; };
 		1F90F630239C94E500E3CEEC /* HomeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F90F62F239C94E500E3CEEC /* HomeTableViewCell.swift */; };
+		1F90F632239DF3D200E3CEEC /* HomePostImageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F90F631239DF3D200E3CEEC /* HomePostImageCollectionViewCell.swift */; };
+		1F90F634239E287F00E3CEEC /* CategoryHomeCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F90F633239E287F00E3CEEC /* CategoryHomeCollectionViewCell.swift */; };
 		3611122D237F9B87003875BE /* MyUsersTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3611122C237F9B87003875BE /* MyUsersTableViewCell.swift */; };
 		36AE8BBA2376281A005B1608 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36AE8BB92376281A005B1608 /* AppDelegate.swift */; };
 		36AE8BC42376281A005B1608 /* Isilgram.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 36AE8BC22376281A005B1608 /* Isilgram.xcdatamodeld */; };
@@ -67,6 +69,8 @@
 /* Begin PBXFileReference section */
 		1F90F62D239C7C0800E3CEEC /* TimestampFU.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimestampFU.swift; sourceTree = "<group>"; };
 		1F90F62F239C94E500E3CEEC /* HomeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTableViewCell.swift; sourceTree = "<group>"; };
+		1F90F631239DF3D200E3CEEC /* HomePostImageCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePostImageCollectionViewCell.swift; sourceTree = "<group>"; };
+		1F90F633239E287F00E3CEEC /* CategoryHomeCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryHomeCollectionViewCell.swift; sourceTree = "<group>"; };
 		2D6564954285AF399E5B369C /* Pods-Isilgram.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Isilgram.debug.xcconfig"; path = "Target Support Files/Pods-Isilgram/Pods-Isilgram.debug.xcconfig"; sourceTree = "<group>"; };
 		3611122C237F9B87003875BE /* MyUsersTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyUsersTableViewCell.swift; sourceTree = "<group>"; };
 		36AE8BB62376281A005B1608 /* Isilgram.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Isilgram.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -326,6 +330,8 @@
 			children = (
 				36DB1E372379207800520BA3 /* HomeViewController.swift */,
 				1F90F62F239C94E500E3CEEC /* HomeTableViewCell.swift */,
+				1F90F631239DF3D200E3CEEC /* HomePostImageCollectionViewCell.swift */,
+				1F90F633239E287F00E3CEEC /* CategoryHomeCollectionViewCell.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -492,11 +498,13 @@
 				36AE8BDF23762B5E005B1608 /* RecoverViewController.swift in Sources */,
 				1F90F62E239C7C0800E3CEEC /* TimestampFU.swift in Sources */,
 				36D4E00D2376DAEB001194D5 /* CSMCustomStarsView.swift in Sources */,
+				1F90F634239E287F00E3CEEC /* CategoryHomeCollectionViewCell.swift in Sources */,
 				36D4E0162376DAEB001194D5 /* CSMSwitch.swift in Sources */,
 				36D4E0042376DAEB001194D5 /* CSMLabel.swift in Sources */,
 				36D4E01A2376DAEB001194D5 /* CSMSlider.swift in Sources */,
 				36D4E0022376DAEB001194D5 /* CSMTextView.swift in Sources */,
 				36B993B4237753BE00F73823 /* Function.swift in Sources */,
+				1F90F632239DF3D200E3CEEC /* HomePostImageCollectionViewCell.swift in Sources */,
 				36B73417237E150D00617293 /* AllFollowersViewController.swift in Sources */,
 				36D4E0082376DAEB001194D5 /* CSMNumber.swift in Sources */,
 				36E3E906237B3D5200BE6D30 /* EditAccountViewController.swift in Sources */,
