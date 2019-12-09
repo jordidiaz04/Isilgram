@@ -10,6 +10,7 @@ import UIKit
 import FirebaseAuth
 import FirebaseFirestore
 import FirebaseStorage
+import CodableFirebase
 
 class SignInViewController: UIViewController {
     @IBOutlet weak var scrollView: UIScrollView!

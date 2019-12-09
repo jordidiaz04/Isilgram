@@ -9,6 +9,7 @@
 import UIKit
 import FirebaseAuth
 import FirebaseFirestore
+import CodableFirebase
 
 class AllFollowersViewController: UIViewController {
     @IBOutlet weak var tblUsers: UITableView!

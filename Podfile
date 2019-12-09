@@ -15,4 +15,5 @@ target 'Isilgram' do
 
   pod 'FacebookCore'
   pod 'FacebookLogin'
+  pod 'CodableFirebase'
 end
