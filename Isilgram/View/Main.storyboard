@@ -804,7 +804,7 @@
                                                             </connections>
                                                         </collectionView>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="1000" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lzX-RT-ew3">
-                                                            <rect key="frame" x="8" y="494" width="304" height="166"/>
+                                                            <rect key="frame" x="8" y="394" width="304" height="266"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" constant="304" id="7Ed-dA-aR7"/>
                                                             </constraints>
@@ -814,7 +814,7 @@
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DTg-ZY-GGh">
-                                                            <rect key="frame" x="0.0" y="448" width="320" height="38"/>
+                                                            <rect key="frame" x="0.0" y="348" width="320" height="38"/>
                                                             <subviews>
                                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SX1-Fp-zkU">
                                                                     <rect key="frame" x="278.5" y="8" width="33.5" height="22"/>
@@ -860,10 +860,10 @@
                                                             </constraints>
                                                         </view>
                                                         <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="ezO-4b-ThF">
-                                                            <rect key="frame" x="0.0" y="48" width="320" height="400"/>
+                                                            <rect key="frame" x="0.0" y="48" width="320" height="300"/>
                                                             <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                                             <constraints>
-                                                                <constraint firstAttribute="height" priority="999" constant="400" id="5yz-be-5V8"/>
+                                                                <constraint firstAttribute="height" priority="999" constant="300" id="5yz-be-5V8"/>
                                                             </constraints>
                                                             <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="AcF-rW-h2M">
                                                                 <size key="itemSize" width="320" height="401"/>
@@ -873,7 +873,7 @@
                                                             </collectionViewFlowLayout>
                                                             <cells>
                                                                 <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="HomePostImageCollectionViewCell" id="MII-Ya-8RQ" customClass="HomePostImageCollectionViewCell" customModule="Isilgram" customModuleProvider="target">
-                                                                    <rect key="frame" x="0.0" y="-0.5" width="320" height="401"/>
+                                                                    <rect key="frame" x="0.0" y="-50.5" width="320" height="401"/>
                                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                                     <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="Ikq-zl-pTp">
                                                                         <rect key="frame" x="0.0" y="0.0" width="320" height="401"/>
@@ -932,6 +932,7 @@
                                                     <outlet property="btnLikes" destination="exF-qg-RBT" id="FVn-Vu-1pQ"/>
                                                     <outlet property="cvHashtags" destination="vcn-9i-GPL" id="G6R-mL-wH1"/>
                                                     <outlet property="cvPostImg" destination="ezO-4b-ThF" id="x5o-bA-pIK"/>
+                                                    <outlet property="flowLayout" destination="AcF-rW-h2M" id="8B6-k3-mdz"/>
                                                     <outlet property="imgAvatar" destination="fqa-cI-bW4" id="LhF-z8-exv"/>
                                                     <outlet property="postHeight" destination="5yz-be-5V8" id="fab-59-rxt"/>
                                                     <outlet property="txtDate" destination="nJn-4G-BPg" id="4ER-R0-IcH"/>

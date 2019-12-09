@@ -22,6 +22,7 @@ class HomeTableViewCell: UITableViewCell {
     @IBOutlet weak var cvPostImg: UICollectionView!
     @IBOutlet weak var txtDate: UILabel!
     @IBOutlet weak var cvHashtags: UICollectionView!
+    @IBOutlet weak var flowLayout: UICollectionViewFlowLayout!
     
     let storage = Storage.storage()
     let user = Auth.auth().currentUser
@@ -128,15 +129,7 @@ extension HomeTableViewCell: UICollectionViewDelegate, UICollectionViewDataSourc
             let category = "#\(self.post.categories?[indexPath.row] ?? "")"
             cell.buttonHash.setTitle(category, for: .normal)
             cell.layoutIfNeeded()
-            
-            cell.contentView.frame = cell.bounds
-            cell.contentView.autoresizingMask = [.flexibleLeftMargin,
-                                                 .flexibleWidth,
-                                                 .flexibleRightMargin,
-                                                 .flexibleTopMargin,
-                                                 .flexibleHeight,
-                                                 .flexibleBottomMargin]
-            self.postHeight.constant = collectionView.contentSize.height;
+
             return cell
         }
         return UICollectionViewCell()
