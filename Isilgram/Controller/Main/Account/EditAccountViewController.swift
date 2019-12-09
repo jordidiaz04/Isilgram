@@ -25,11 +25,11 @@ class EditAccountViewController: UIViewController {
     
     
     //MARK: Variables and Components
-    var isChangeImage: Bool!
     var objUserBE: UserBE!
     var dbUsers: CollectionReference!
     var user: User!
     var stgUser: StorageReference!
+    var isChange: Bool!
     var imagePickerController: UIImagePickerController?
     var defaultImageUrl: URL?
     
@@ -83,9 +83,9 @@ class EditAccountViewController: UIViewController {
         txtBirthDate.inputView = datePicker
         txtBirthDate.inputAccessoryView = toolbar
         txtBirthDate.text = formatter.string(from: Date())
+        isChange = false
     }
     override func viewWillAppear(_ animated: Bool) {
-        isChangeImage = false
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
     }
@@ -157,10 +157,11 @@ class EditAccountViewController: UIViewController {
             objUserBE.email = (txtEmail.text?.trim())!
             objUserBE.namePhoto = "perfil"
             
-            checkUserAuthentication()
-            if isChangeImage {
+            if isChange {
                 uploadPhotoToStorage()
-                SDWebImageManager.shared.imageCache.clear(with: .all, completion: nil)
+            }
+            else {
+                checkUserAuthentication()
             }
         }
     }
@@ -289,23 +290,28 @@ class EditAccountViewController: UIViewController {
         metaData.contentType = "image/jpeg"
         let refUserPhoto = stgUser.child(user.uid).child(objUserBE.namePhoto)
         
+        SDWebImageManager.shared.imageCache.clear(with: .all, completion: nil)
+        
         refUserPhoto.putData(data!, metadata: metaData) { (meta, err) in
             if err != nil {
                 Function.showAlertError(context: self, err: err!)
+            }
+            else {
+                self.checkUserAuthentication()
             }
         }
     }
 }
 
 extension EditAccountViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
-    
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         guard let image = info[UIImagePickerController.InfoKey.editedImage] as? UIImage else {
             return self.imagePickerControllerDidCancel(picker)
         }
         
-        self.ivPhoto.image = image
-        self.isChangeImage = true
+        ivPhoto.image = image
+        isChange = true
+        
         picker.dismiss(animated: true) {
             picker.delegate = nil
         }

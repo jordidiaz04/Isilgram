@@ -40,7 +40,12 @@ class AccountViewController: UIViewController {
         ivPhoto.clipsToBounds = true
         
         getUserInformation()
-        loadUserPhoto()
+        loadMyPosts()
+    }
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        self.loadUserPhoto()
     }
     
     
@@ -53,6 +58,7 @@ class AccountViewController: UIViewController {
         }
         
         dbUsers.document(user.uid).addSnapshotListener { (documentSnapshot, err) in
+            self.arrayPosts.removeAll()
             if err == nil {
                 guard let document = documentSnapshot else {
                     Function.showAlert(context: self, title: Constant.title_1, message: menssageNoInformation, button: Constant.button_accept)
@@ -75,11 +81,11 @@ class AccountViewController: UIViewController {
         lblNickname.text = obj.nickName
     }
     func loadUserPhoto() {
-        let refStorage = stgUser.child(user.uid).child("perfil")
-        self.ivPhoto.sd_setImage(with: refStorage)
+        let refPhoto = stgUser.child(user.uid).child("perfil")
+        ivPhoto.sd_setImage(with: refPhoto, placeholderImage: UIImage(named: "logo"))
     }
     func loadMyPosts() {
-        dbPosts.whereField("author", isEqualTo: user.uid).getDocuments { (snapshot, err) in
+        dbPosts.whereField("author", isEqualTo: user.uid).addSnapshotListener { (snapshot, err) in
             if let err = err {
                 Function.showAlertError(context: self, err: err)
             }
@@ -88,8 +94,34 @@ class AccountViewController: UIViewController {
                     let objPostBE = try! FirestoreDecoder().decode(PostBE.self, from: document.data())
                     self.arrayPosts.append(objPostBE)
                 }
+                
                 self.clvPosts.reloadData()
             }
         }
+    }
+}
+
+extension AccountViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+    func numberOfSections(in collectionView: UICollectionView) -> Int {
+        return 1
+    }
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return self.arrayPosts.count
+    }
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cellIdentifier = "PostCollectionViewCell"
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellIdentifier, for: indexPath) as! PostCollectionViewCell
+        cell.objPost = self.arrayPosts[indexPath.row]
+        
+        return cell
+    }
+    
+    
+    //MARK: Funciones para dar tamaño a la celda
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return CGSize(width: view.bounds.size.width/4, height: view.bounds.size.width/4)
+    }
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
+        return 0
     }
 }

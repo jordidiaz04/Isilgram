@@ -61,14 +61,14 @@
                                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="cNX-p7-5fO">
                                                 <rect key="frame" x="0.0" y="150" width="320" height="645.5"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="dBb-fS-7Lm">
+                                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="dBb-fS-7Lm">
                                                     <size key="itemSize" width="130" height="162"/>
                                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                                 </collectionViewFlowLayout>
                                                 <cells>
-                                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="kW3-B5-5et">
+                                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="PostCollectionViewCell" id="kW3-B5-5et" customClass="PostCollectionViewCell" customModule="Isilgram" customModuleProvider="target">
                                                         <rect key="frame" x="0.0" y="0.0" width="130" height="162"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
@@ -77,6 +77,10 @@
                                                             <subviews>
                                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="img_default" translatesAutoresizingMaskIntoConstraints="NO" id="omF-dR-Mzf" customClass="CSMImageView" customModule="Isilgram" customModuleProvider="target">
                                                                     <rect key="frame" x="0.0" y="0.0" width="130" height="162"/>
+                                                                    <constraints>
+                                                                        <constraint firstAttribute="height" constant="130" id="YdM-lx-rQa"/>
+                                                                        <constraint firstAttribute="width" constant="130" id="t2e-ne-638"/>
+                                                                    </constraints>
                                                                 </imageView>
                                                             </subviews>
                                                         </view>
@@ -86,8 +90,15 @@
                                                             <constraint firstAttribute="trailing" secondItem="omF-dR-Mzf" secondAttribute="trailing" id="U6M-2I-pAg"/>
                                                             <constraint firstAttribute="bottom" secondItem="omF-dR-Mzf" secondAttribute="bottom" id="Ve6-vG-QRg"/>
                                                         </constraints>
+                                                        <connections>
+                                                            <outlet property="ivPost" destination="omF-dR-Mzf" id="3DT-vI-W1i"/>
+                                                        </connections>
                                                     </collectionViewCell>
                                                 </cells>
+                                                <connections>
+                                                    <outlet property="dataSource" destination="X7Z-68-Skz" id="IdZ-FY-hyY"/>
+                                                    <outlet property="delegate" destination="X7Z-68-Skz" id="Avu-33-aDe"/>
+                                                </connections>
                                             </collectionView>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -138,6 +149,7 @@
                     </navigationItem>
                     <size key="freeformSize" width="320" height="860"/>
                     <connections>
+                        <outlet property="clvPosts" destination="cNX-p7-5fO" id="ct4-qF-FbS"/>
                         <outlet property="ivPhoto" destination="Bop-EJ-IOf" id="OOb-21-N7k"/>
                         <outlet property="lblNickname" destination="F9z-27-y1L" id="wAz-uS-k1l"/>
                         <outlet property="scrollView" destination="Hj0-P1-hLn" id="cku-hV-0NP"/>
@@ -697,7 +709,7 @@
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="851"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <prototypes>
-                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="HomeTableViewCell" rowHeight="728" translatesAutoresizingMaskIntoConstraints="NO" id="uGy-Cd-lMP" customClass="HomeTableViewCell" customModule="Isilgram" customModuleProvider="target">
+                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="HomeTableViewCell" rowHeight="728" translatesAutoresizingMaskIntoConstraints="NO" id="uGy-Cd-lMP" customClass="HomeTableViewCell" customModule="Isilgram" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="28" width="320" height="728"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="uGy-Cd-lMP" id="0EU-S7-lHd">
