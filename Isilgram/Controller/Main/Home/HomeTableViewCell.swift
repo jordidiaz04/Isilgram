@@ -10,6 +10,8 @@ import UIKit
 import FirebaseStorage
 import FirebaseUI
 import FirebaseAuth
+import FirebaseFirestore
+import CodableFirebase
 
 class HomeTableViewCell: UITableViewCell {
     @IBOutlet weak var txtUsername: UILabel!
@@ -25,6 +27,8 @@ class HomeTableViewCell: UITableViewCell {
     @IBOutlet weak var flowLayout: UICollectionViewFlowLayout!
     
     let storage = Storage.storage()
+    let db = Firestore.firestore()
+
     let user = Auth.auth().currentUser
     
     var post: PostBE! {
@@ -36,7 +40,6 @@ class HomeTableViewCell: UITableViewCell {
     func updatePosts(){
         let df = DateFormatter()
         df.dateFormat = "dd/MM/yy HH:mma"
-        
         let time = Date.init(timeIntervalSince1970: TimeInterval(integerLiteral: post.dateCreated?.seconds ?? 0))
         
         let now = df.string(from: time)
@@ -69,6 +72,10 @@ class HomeTableViewCell: UITableViewCell {
                 // Fallback on earlier versions
             }
         }
+    }
+    
+    func getComments(postId: String){
+
     }
     
     func displayPostImages(){
@@ -116,8 +123,9 @@ extension HomeTableViewCell: UICollectionViewDelegate, UICollectionViewDataSourc
             let cellIdentifier = "HomePostImageCollectionViewCell"
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellIdentifier, for: indexPath) as! HomePostImageCollectionViewCell
             
-            cell.userId = post.author
-            cell.imgUrl = post.pictures?[indexPath.row]
+            let imgData = ImageBE(userId: post.author ?? "", imageUrl: post.pictures?[indexPath.row] ?? "")
+            
+            cell.imageBE = imgData
             cell.layoutIfNeeded()
             
            

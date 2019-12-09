@@ -12,6 +12,8 @@
 		1F90F630239C94E500E3CEEC /* HomeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F90F62F239C94E500E3CEEC /* HomeTableViewCell.swift */; };
 		1F90F632239DF3D200E3CEEC /* HomePostImageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F90F631239DF3D200E3CEEC /* HomePostImageCollectionViewCell.swift */; };
 		1F90F634239E287F00E3CEEC /* CategoryHomeCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F90F633239E287F00E3CEEC /* CategoryHomeCollectionViewCell.swift */; };
+		1F90F637239EC03300E3CEEC /* CommentBE.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F90F636239EC03300E3CEEC /* CommentBE.swift */; };
+		1F90F639239F00B200E3CEEC /* ImageBE.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F90F638239F00B200E3CEEC /* ImageBE.swift */; };
 		3611122D237F9B87003875BE /* MyUsersTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3611122C237F9B87003875BE /* MyUsersTableViewCell.swift */; };
 		36AE8BBA2376281A005B1608 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36AE8BB92376281A005B1608 /* AppDelegate.swift */; };
 		36AE8BC42376281A005B1608 /* Isilgram.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 36AE8BC22376281A005B1608 /* Isilgram.xcdatamodeld */; };
@@ -71,6 +73,8 @@
 		1F90F62F239C94E500E3CEEC /* HomeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTableViewCell.swift; sourceTree = "<group>"; };
 		1F90F631239DF3D200E3CEEC /* HomePostImageCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePostImageCollectionViewCell.swift; sourceTree = "<group>"; };
 		1F90F633239E287F00E3CEEC /* CategoryHomeCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryHomeCollectionViewCell.swift; sourceTree = "<group>"; };
+		1F90F636239EC03300E3CEEC /* CommentBE.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentBE.swift; sourceTree = "<group>"; };
+		1F90F638239F00B200E3CEEC /* ImageBE.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageBE.swift; sourceTree = "<group>"; };
 		2D6564954285AF399E5B369C /* Pods-Isilgram.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Isilgram.debug.xcconfig"; path = "Target Support Files/Pods-Isilgram/Pods-Isilgram.debug.xcconfig"; sourceTree = "<group>"; };
 		3611122C237F9B87003875BE /* MyUsersTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyUsersTableViewCell.swift; sourceTree = "<group>"; };
 		36AE8BB62376281A005B1608 /* Isilgram.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Isilgram.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -182,6 +186,8 @@
 			children = (
 				36AE8BD323762A6B005B1608 /* UserBE.swift */,
 				FBE4B035238EBF0D004E9B50 /* PostBE.swift */,
+				1F90F636239EC03300E3CEEC /* CommentBE.swift */,
+				1F90F638239F00B200E3CEEC /* ImageBE.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -486,6 +492,7 @@
 				36D0BCF9238059D600676C0D /* PublishViewController.swift in Sources */,
 				36AE8BDD23762B3D005B1608 /* LoginViewController.swift in Sources */,
 				36D4E01D2376DAEB001194D5 /* CSMString.swift in Sources */,
+				1F90F637239EC03300E3CEEC /* CommentBE.swift in Sources */,
 				36D4E0122376DAEB001194D5 /* CSMButton.swift in Sources */,
 				36D4E0142376DAEB001194D5 /* CSMCustomCollectionViewVerticalLayout.swift in Sources */,
 				36D4E0062376DAEB001194D5 /* CSMCrypto.swift in Sources */,
@@ -515,6 +522,7 @@
 				FBE4B036238EBF0D004E9B50 /* PostBE.swift in Sources */,
 				36D4E01C2376DAEB001194D5 /* CSMView.swift in Sources */,
 				36D4E00F2376DAEB001194D5 /* CSMJSON.swift in Sources */,
+				1F90F639239F00B200E3CEEC /* ImageBE.swift in Sources */,
 				36D4E0102376DAEB001194D5 /* CSMAutomaticStatusBarColor.swift in Sources */,
 				36D4E00E2376DAEB001194D5 /* CSMImage.swift in Sources */,
 				FBE4B034238EBBEF004E9B50 /* PostCollectionViewCell.swift in Sources */,

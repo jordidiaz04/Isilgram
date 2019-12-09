@@ -15,10 +15,8 @@ class HomePostImageCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var imgPost: UIImageView!
     @IBOutlet weak var height4Images: NSLayoutConstraint!
     let storage = Storage.storage()
-
-    var userId: String!
     
-    var imgUrl: String! {
+    var imageBE: ImageBE! {
         didSet{
             self.loadImages()
         }
@@ -26,8 +24,8 @@ class HomePostImageCollectionViewCell: UICollectionViewCell {
     
     func loadImages() {
         let storageRef = storage.reference()
-        let imagesRef = storageRef.child(userId ?? "")
-        let img = imgUrl ?? ""
+        let imagesRef = storageRef.child(imageBE.userId)
+        let img = imageBE.imageUrl
         print(img)
         let spaceRef = imagesRef.child("perfil")
         

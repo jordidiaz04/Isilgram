@@ -26,6 +26,7 @@ class HomeViewController: UIViewController {
         Function.removeLastestViews(context: self)
         tvPrincipal.rowHeight = UITableView.automaticDimension
         tvPrincipal.estimatedRowHeight = 500
+
         getPosts()
     }
     
@@ -40,6 +41,7 @@ class HomeViewController: UIViewController {
                     var post = PostBE()
                     do {
                         post = try! FirestoreDecoder().decode(PostBE.self, from: document.data())
+                        post.id = document.documentID
                         if post != nil.self {
                             self.getUserName(id: post.author ?? "", post: post)
                             print(self.posts)
@@ -77,6 +79,8 @@ class HomeViewController: UIViewController {
             }
             }
     }
+    
+
 }
 extension HomeViewController: UITableViewDelegate, UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -88,7 +92,12 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource{
         
         let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as! HomeTableViewCell
         cell.post = self.posts[indexPath.row]
+        cell.cvPostImg.reloadData()
+        cell.cvPostImg.collectionViewLayout.invalidateLayout()
+        cell.cvHashtags.reloadData()
+        cell.cvHashtags.collectionViewLayout.invalidateLayout()
         self.tvPrincipal.sizeToFit()
+        
         return cell
     }
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
