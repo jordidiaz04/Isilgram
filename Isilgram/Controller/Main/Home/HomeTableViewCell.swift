@@ -34,6 +34,7 @@ class HomeTableViewCell: UITableViewCell {
     var currentPage = 0
     var comments: [CommentBE] = []
     
+    var context: UIViewController!
     var post: PostBE! {
         didSet{
             self.updatePosts()
@@ -55,6 +56,16 @@ class HomeTableViewCell: UITableViewCell {
                 let mas:Int? = (Int(btnLikes?.currentTitle ?? "0") ?? 0) + 1
                 btnLikes.setTitle("\(mas ?? 1)", for: .normal)
             }
+        } else {
+            // Fallback on earlier versions
+        }
+    }
+    @IBAction func seeComments(_ sender: Any) {
+        let storyboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+        if #available(iOS 13.0, *) {
+            let vc = storyboard.instantiateViewController(identifier: "CommentViewController") as! CommentViewController
+            context.present(vc, animated: true, completion: nil)
+            vc.idPost = post.id
         } else {
             // Fallback on earlier versions
         }

@@ -64,6 +64,7 @@
 		36D4E01D2376DAEB001194D5 /* CSMString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36D4E0012376DAEB001194D5 /* CSMString.swift */; };
 		36DB1E352379203F00520BA3 /* AccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36DB1E342379203F00520BA3 /* AccountViewController.swift */; };
 		36DB1E382379207800520BA3 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36DB1E372379207800520BA3 /* HomeViewController.swift */; };
+		36E288DD23A05451004EF85E /* CommentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36E288DC23A05451004EF85E /* CommentViewController.swift */; };
 		36E3E906237B3D5200BE6D30 /* EditAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36E3E905237B3D5200BE6D30 /* EditAccountViewController.swift */; };
 		FBE4B034238EBBEF004E9B50 /* PostCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBE4B033238EBBEF004E9B50 /* PostCollectionViewCell.swift */; };
 		FBE4B036238EBF0D004E9B50 /* PostBE.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBE4B035238EBF0D004E9B50 /* PostBE.swift */; };
@@ -129,6 +130,7 @@
 		36D4E0012376DAEB001194D5 /* CSMString.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CSMString.swift; sourceTree = "<group>"; };
 		36DB1E342379203F00520BA3 /* AccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountViewController.swift; sourceTree = "<group>"; };
 		36DB1E372379207800520BA3 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		36E288DC23A05451004EF85E /* CommentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentViewController.swift; sourceTree = "<group>"; };
 		36E3E905237B3D5200BE6D30 /* EditAccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditAccountViewController.swift; sourceTree = "<group>"; };
 		C192203EED2AFA60E0F0A8E5 /* Pods_Isilgram.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Isilgram.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E2B847A560B23A42E66F4F60 /* Pods-Isilgram.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Isilgram.release.xcconfig"; path = "Target Support Files/Pods-Isilgram/Pods-Isilgram.release.xcconfig"; sourceTree = "<group>"; };
@@ -341,6 +343,7 @@
 				1F90F62F239C94E500E3CEEC /* HomeTableViewCell.swift */,
 				1F90F631239DF3D200E3CEEC /* HomePostImageCollectionViewCell.swift */,
 				1F90F633239E287F00E3CEEC /* CategoryHomeCollectionViewCell.swift */,
+				36E288DC23A05451004EF85E /* CommentViewController.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -489,6 +492,7 @@
 				36AE8BBA2376281A005B1608 /* AppDelegate.swift in Sources */,
 				36D4E00A2376DAEB001194D5 /* CSMLocalNotificationManager.swift in Sources */,
 				36B993B22377523C00F73823 /* Constant.swift in Sources */,
+				36E288DD23A05451004EF85E /* CommentViewController.swift in Sources */,
 				36D4E0072376DAEB001194D5 /* CSMColorManager.swift in Sources */,
 				36DB1E352379203F00520BA3 /* AccountViewController.swift in Sources */,
 				36D4E0032376DAEB001194D5 /* CSMLocalAuthentication.swift in Sources */,
