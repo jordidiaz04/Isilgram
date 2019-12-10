@@ -24,11 +24,15 @@ class HomeTableViewCell: UITableViewCell {
     @IBOutlet weak var txtDate: UILabel!
     @IBOutlet weak var cvHashtags: UICollectionView!
     @IBOutlet weak var flowLayout: UICollectionViewFlowLayout!
+    @IBOutlet weak var heighHastag: NSLayoutConstraint!
     
+    @IBOutlet weak var imgIndicator: UIPageControl!
     let storage = Storage.storage()
     let db = Firestore.firestore()
 
     let user = Auth.auth().currentUser
+    var currentPage = 0
+    var comments: [CommentBE] = []
     
     var post: PostBE! {
         didSet{
@@ -108,17 +112,16 @@ class HomeTableViewCell: UITableViewCell {
         if let error = error{
             print("error: \(error)")
         } else {
-            var comments = CommentBE()
             do {
                 guard let data = snapshot?.data() else {
                     return
                 }
-                var aaray: [CommentBE] = []
                 for item in data {
                     let comment = try! FirestoreDecoder().decode(CommentBE.self, from: item.value as! [String : Any])
-                    aaray.append(comment)
+                    self.comments.append(comment)
                 }
-                print(aaray)
+                self.countComments()
+                print(self.comments)
             } catch let error {
                 print(error)
             }
@@ -126,6 +129,9 @@ class HomeTableViewCell: UITableViewCell {
         }
     }
     
+    func countComments(){
+        btnComments.setTitle("\(comments.count)", for: .normal)
+    }
 
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -158,16 +164,22 @@ extension HomeTableViewCell: UICollectionViewDelegate, UICollectionViewDataSourc
             
             cell.imageBE = imgData
             cell.layoutIfNeeded()
-            
-           
+                       
             self.postHeight.constant = collectionView.contentSize.height;
+            if post.pictures?.count ?? 0 > 1 {
+                self.imgIndicator.numberOfPages = post.pictures?.count ?? 0
+            }
+
             return cell
         }else if collectionView == cvHashtags {
             let cellIdentifier = "CategoryHomeCollectionViewCell"
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellIdentifier, for: indexPath) as! CategoryHomeCollectionViewCell
             let category = "#\(self.post.categories?[indexPath.row] ?? "")"
             cell.buttonHash.setTitle(category, for: .normal)
+            cell.setNeedsLayout()
             cell.layoutIfNeeded()
+            heighHastag.constant = collectionView.collectionViewLayout.collectionViewContentSize.height;
+
 
             return cell
         }
@@ -175,6 +187,16 @@ extension HomeTableViewCell: UICollectionViewDelegate, UICollectionViewDataSourc
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        if collectionView == cvHashtags {
+            let frameWidth  = collectionView.frame.width
+            let maxCellWidth = (frameWidth) / (7.0/6.0 + 6.0)
+            let frameHeight  = collectionView.frame.height
+            let maxCellHeight = frameHeight
+
+            let cellEdge = maxCellWidth < maxCellHeight ? maxCellWidth : maxCellHeight
+
+            return CGSize(width: cellEdge, height: cellEdge)
+        }
         return CGSize(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height)
     }
     
@@ -186,4 +208,18 @@ extension HomeTableViewCell: UICollectionViewDelegate, UICollectionViewDataSourc
         }
         return 0
     }
+    
+    func scrollViewDidScroll(_ scrollView: UIScrollView)
+     {
+        if scrollView == cvPostImg {
+            let pageWidth = scrollView.frame.width
+            self.currentPage = Int((scrollView.contentOffset.x + pageWidth / 2) / pageWidth)
+            self.imgIndicator.currentPage = self.currentPage
+        }
+
+     }
+    override func layoutSubviews() {
+        cvHashtags.collectionViewLayout.collectionViewContentSize
+    }
+
 }
