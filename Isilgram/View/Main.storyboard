@@ -332,7 +332,7 @@
                                             </textField>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ESX-DD-QvS" customClass="CSMButton" customModule="Isilgram" customModuleProvider="target">
                                                 <rect key="frame" x="20" y="492" width="280" height="50"/>
-                                                <color key="backgroundColor" red="0.0" green="0.35799917949999999" blue="0.72613334659999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <color key="backgroundColor" red="0.0" green="0.35686274509803922" blue="0.72549019607843135" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="50" id="rrF-Ad-FCI"/>
                                                 </constraints>
@@ -1004,27 +1004,50 @@
                                 <rect key="frame" x="0.0" y="44" width="320" height="607"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="O8x-5r-rXH">
-                                        <rect key="frame" x="0.0" y="0.0" width="320" height="607"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="472"/>
                                         <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KJJ-qp-V6e">
-                                                <rect key="frame" x="16" y="541" width="288" height="50"/>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KJJ-qp-V6e" customClass="CSMButton" customModule="Isilgram" customModuleProvider="target">
+                                                <rect key="frame" x="16" y="406" width="288" height="50"/>
+                                                <color key="backgroundColor" red="0.0" green="0.35686274509803922" blue="0.72549019607843135" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="50" id="PSb-uZ-pPd"/>
                                                 </constraints>
-                                                <state key="normal" title="Button"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <state key="normal" title="Publicar">
+                                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </state>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                        <real key="value" value="25"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="enviarPost:" destination="SEd-7e-yjg" eventType="touchUpInside" id="48j-nt-mwu"/>
+                                                </connections>
                                             </button>
-                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" showsHorizontalScrollIndicator="NO" text="Lorem ipsum dolor sit er elit lamet, consectetaur " textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="ATX-ld-Ht3" customClass="CSMTextView" customModule="Isilgram" customModuleProvider="target">
-                                                <rect key="frame" x="16" y="153" width="288" height="194"/>
-                                                <color key="backgroundColor" systemColor="systemBlueColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" showsHorizontalScrollIndicator="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="ATX-ld-Ht3" customClass="CSMTextView" customModule="Isilgram" customModuleProvider="target">
+                                                <rect key="frame" x="16" y="145" width="288" height="100"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="194" id="sQN-Bw-krl"/>
+                                                    <constraint firstAttribute="height" constant="100" id="sQN-Bw-krl"/>
                                                 </constraints>
                                                 <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="string" keyPath="placeholderText" value="Escribe un texto que acompañara a tu foto."/>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                                        <color key="value" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                        <real key="value" value="1"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                        <real key="value" value="5"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
                                             </textView>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="y9p-9y-OZa">
-                                                <rect key="frame" x="16" y="363" width="288" height="21"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hashtags" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="y9p-9y-OZa">
+                                                <rect key="frame" x="16" y="261" width="288" height="21"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="21" id="M5z-UJ-9BQ"/>
                                                 </constraints>
@@ -1032,16 +1055,27 @@
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="DV6-zr-Lay">
-                                                <rect key="frame" x="16" y="400" width="288" height="125"/>
+                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="DV6-zr-Lay" customClass="CSMTextView" customModule="Isilgram" customModuleProvider="target">
+                                                <rect key="frame" x="16" y="290" width="288" height="100"/>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="125" id="YSa-LE-oHD"/>
+                                                    <constraint firstAttribute="height" constant="100" id="YSa-LE-oHD"/>
                                                 </constraints>
-                                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                                                 <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                                        <color key="value" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                        <real key="value" value="1"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                        <real key="value" value="5"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="string" keyPath="placeholderText" value="Hashtags separados por espacios"/>
+                                                </userDefinedRuntimeAttributes>
                                             </textView>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2w9-ke-XjB">
                                                 <rect key="frame" x="0.0" y="0.0" width="320" height="100"/>
@@ -1061,7 +1095,7 @@
                                                     <constraint firstAttribute="height" constant="100" id="xs2-SD-N2E"/>
                                                 </constraints>
                                             </view>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b1h-dV-9eq">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Mensaje" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b1h-dV-9eq">
                                                 <rect key="frame" x="16" y="116" width="288" height="21"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="21" id="bqO-sB-q1L"/>
@@ -1079,14 +1113,14 @@
                                             <constraint firstItem="y9p-9y-OZa" firstAttribute="top" secondItem="ATX-ld-Ht3" secondAttribute="bottom" constant="16" id="An1-Nx-tFT"/>
                                             <constraint firstItem="2w9-ke-XjB" firstAttribute="top" secondItem="O8x-5r-rXH" secondAttribute="top" id="Beh-TU-W7b"/>
                                             <constraint firstItem="DV6-zr-Lay" firstAttribute="leading" secondItem="O8x-5r-rXH" secondAttribute="leading" constant="16" id="CUf-Qz-QNg"/>
-                                            <constraint firstItem="DV6-zr-Lay" firstAttribute="top" secondItem="y9p-9y-OZa" secondAttribute="bottom" constant="16" id="HMc-KY-PiK"/>
+                                            <constraint firstItem="DV6-zr-Lay" firstAttribute="top" secondItem="y9p-9y-OZa" secondAttribute="bottom" constant="8" id="HMc-KY-PiK"/>
                                             <constraint firstAttribute="trailing" secondItem="b1h-dV-9eq" secondAttribute="trailing" constant="16" id="Ksf-f5-aaq"/>
                                             <constraint firstItem="ATX-ld-Ht3" firstAttribute="leading" secondItem="O8x-5r-rXH" secondAttribute="leading" constant="16" id="Mf3-5K-QPV"/>
                                             <constraint firstAttribute="trailing" secondItem="DV6-zr-Lay" secondAttribute="trailing" constant="16" id="UL7-bJ-QaP"/>
                                             <constraint firstAttribute="trailing" secondItem="ATX-ld-Ht3" secondAttribute="trailing" constant="16" id="Uhg-xs-JGj"/>
                                             <constraint firstItem="KJJ-qp-V6e" firstAttribute="leading" secondItem="O8x-5r-rXH" secondAttribute="leading" constant="16" id="UnK-Df-Yt0"/>
                                             <constraint firstItem="b1h-dV-9eq" firstAttribute="top" secondItem="2w9-ke-XjB" secondAttribute="bottom" constant="16" id="VDG-As-I6j"/>
-                                            <constraint firstItem="ATX-ld-Ht3" firstAttribute="top" secondItem="b1h-dV-9eq" secondAttribute="bottom" constant="16" id="WbK-25-jF3"/>
+                                            <constraint firstItem="ATX-ld-Ht3" firstAttribute="top" secondItem="b1h-dV-9eq" secondAttribute="bottom" constant="8" id="WbK-25-jF3"/>
                                             <constraint firstAttribute="bottom" secondItem="KJJ-qp-V6e" secondAttribute="bottom" constant="16" id="X6c-MX-ttR"/>
                                             <constraint firstItem="2w9-ke-XjB" firstAttribute="leading" secondItem="O8x-5r-rXH" secondAttribute="leading" id="Zvz-jS-ILj"/>
                                             <constraint firstAttribute="trailing" secondItem="KJJ-qp-V6e" secondAttribute="trailing" constant="16" id="pog-PW-zOR"/>
@@ -1125,6 +1159,12 @@
                         </barButtonItem>
                     </navigationItem>
                     <size key="freeformSize" width="320" height="700"/>
+                    <connections>
+                        <outlet property="btnEnviarPost" destination="KJJ-qp-V6e" id="K0X-Gd-S9t"/>
+                        <outlet property="scrollImages" destination="Rk1-pl-x5O" id="vXT-d1-0Go"/>
+                        <outlet property="tvHashtags" destination="DV6-zr-Lay" id="Cjw-Mh-Ark"/>
+                        <outlet property="tvMessage" destination="ATX-ld-Ht3" id="ltv-og-XKI"/>
+                    </connections>
                 </viewController>
             </objects>
             <point key="canvasLocation" x="-770.625" y="660.21126760563379"/>
