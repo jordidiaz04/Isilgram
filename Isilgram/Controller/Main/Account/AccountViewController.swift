@@ -119,7 +119,7 @@ extension AccountViewController: UICollectionViewDelegate, UICollectionViewDataS
     
     //MARK: Funciones para dar tamaño a la celda
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: view.bounds.size.width/4, height: view.bounds.size.width/4)
+        return CGSize(width: view.bounds.size.width/3, height: view.bounds.size.width/3)
     }
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
         return 0
