@@ -116,6 +116,7 @@ class HomeTableViewCell: UITableViewCell {
                 guard let data = snapshot?.data() else {
                     return
                 }
+                self.comments.removeAll()
                 for item in data {
                     let comment = try! FirestoreDecoder().decode(CommentBE.self, from: item.value as! [String : Any])
                     self.comments.append(comment)
@@ -170,16 +171,22 @@ extension HomeTableViewCell: UICollectionViewDelegate, UICollectionViewDataSourc
                 self.imgIndicator.numberOfPages = post.pictures?.count ?? 0
             }
 
+            heighHastag.constant = post.categories?.count == 0 ? 0 : 30
+            
+            cell.setNeedsLayout()
+            cell.layoutIfNeeded()
+            
             return cell
         }else if collectionView == cvHashtags {
             let cellIdentifier = "CategoryHomeCollectionViewCell"
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellIdentifier, for: indexPath) as! CategoryHomeCollectionViewCell
             let category = "#\(self.post.categories?[indexPath.row] ?? "")"
             cell.buttonHash.setTitle(category, for: .normal)
+            
+            heighHastag.constant = collectionView.collectionViewLayout.collectionViewContentSize.height;
+            
             cell.setNeedsLayout()
             cell.layoutIfNeeded()
-            heighHastag.constant = collectionView.collectionViewLayout.collectionViewContentSize.height;
-
 
             return cell
         }
