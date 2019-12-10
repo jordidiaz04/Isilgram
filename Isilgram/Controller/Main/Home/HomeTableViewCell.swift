@@ -41,9 +41,15 @@ class HomeTableViewCell: UITableViewCell {
         if #available(iOS 13.0, *) {
             if btnLikes.currentImage == UIImage(systemName: "hand.thumbsup.fill") {
                 db.collection("posts").document(post.id!).updateData(["likes": FieldValue.arrayRemove([user?.uid])])
+                btnLikes.setImage(UIImage(systemName: "hand.thumbsup"), for: .normal)
+                let menos:Int? = (Int(btnLikes?.currentTitle ?? "1") ?? 1) - 1
+                btnLikes.setTitle("\(menos ?? 0)", for: .normal)
             }
             else{
                 db.collection("posts").document(post.id!).updateData(["likes": FieldValue.arrayUnion([user?.uid])])
+                btnLikes.setImage(UIImage(systemName: "hand.thumbsup.fill"), for: .normal)
+                let mas:Int? = (Int(btnLikes?.currentTitle ?? "0") ?? 0) + 1
+                btnLikes.setTitle("\(mas ?? 1)", for: .normal)
             }
         } else {
             // Fallback on earlier versions
@@ -83,6 +89,13 @@ class HomeTableViewCell: UITableViewCell {
             print("true")
             if #available(iOS 13.0, *) {
                 btnLikes.setImage(UIImage(systemName: "hand.thumbsup.fill"), for: .normal)
+            } else {
+                // Fallback on earlier versions
+            }
+        }else{
+            print("false")
+            if #available(iOS 13.0, *) {
+                btnLikes.setImage(UIImage(systemName: "hand.thumbsup"), for: .normal)
             } else {
                 // Fallback on earlier versions
             }
