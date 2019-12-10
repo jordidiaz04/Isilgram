@@ -100,7 +100,7 @@ class HomeTableViewCell: UITableViewCell {
         btnLikes.setTitle(likes, for: .normal)
         print(user?.uid)
 
-        if (post.likes?.contains(user?.uid ?? ""))!{
+        if (post.likes?.contains(user?.uid ?? "") ?? false)!{
             print("true")
             if #available(iOS 13.0, *) {
                 btnLikes.setImage(UIImage(systemName: "hand.thumbsup.fill"), for: .normal)
