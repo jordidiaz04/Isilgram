@@ -839,6 +839,9 @@
                                                                     <state key="normal" title="0" image="hand.thumbsup" catalog="system">
                                                                         <color key="titleColor" systemColor="linkColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                     </state>
+                                                                    <connections>
+                                                                        <action selector="giveLike:" destination="uGy-Cd-lMP" eventType="touchUpInside" id="2tk-C1-rFn"/>
+                                                                    </connections>
                                                                 </button>
                                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="owe-TY-Jji">
                                                                     <rect key="frame" x="199" y="8" width="31.5" height="22"/>

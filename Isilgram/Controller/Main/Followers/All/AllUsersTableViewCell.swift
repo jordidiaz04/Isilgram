@@ -42,7 +42,17 @@ class AllUsersTableViewCell: UITableViewCell {
     @IBAction func follow(_ sender: Any) {
         let data: [String: Any] = [ "\(objUserBE.id)": true ]
         
+        
+        
         dbFollowers.document(user!.uid).updateData(data) { (err) in
+            if let err = err {
+                self.createDocumentFollower(data: data)
+            }
+        }
+    }
+    
+    func createDocumentFollower(data: [String: Any]) {
+        dbFollowers.document(user!.uid).setData(data) { (err) in
             if let err = err {
                 Function.showAlertError(context: self.context, err: err)
             }

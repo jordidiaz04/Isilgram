@@ -70,14 +70,12 @@ class AllFollowersViewController: UIViewController {
                 Function.showAlertError(context: self, err: err)
             }
             else {
-                guard let data = snapshot?.data() else {
-                    return
-                }
-                
-                self.arrayFollowers.removeAll()
-                
-                for item in data {
-                    self.arrayFollowers.append(item.key)
+                if let data = snapshot!.data() {
+                    self.arrayFollowers.removeAll()
+                    
+                    for item in data {
+                        self.arrayFollowers.append(item.key)
+                    }
                 }
                 self.listDataTable()
             }

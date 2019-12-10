@@ -18,7 +18,6 @@ class HomeTableViewCell: UITableViewCell {
     @IBOutlet weak var txtMessage: UILabel!
     @IBOutlet weak var imgAvatar: UIImageView!
     @IBOutlet weak var postHeight: NSLayoutConstraint!
-    @IBOutlet weak var imgPost: UIImageView!
     @IBOutlet weak var btnLikes: UIButton!
     @IBOutlet weak var btnComments: UIButton!
     @IBOutlet weak var cvPostImg: UICollectionView!
@@ -37,9 +36,24 @@ class HomeTableViewCell: UITableViewCell {
         }
     }
     
+    
+    @IBAction func giveLike(_ sender: Any) {
+        if #available(iOS 13.0, *) {
+            if btnLikes.currentImage == UIImage(systemName: "hand.thumbsup.fill") {
+                db.collection("posts").document(post.id!).updateData(["likes": FieldValue.arrayRemove([user?.uid])])
+            }
+            else{
+                db.collection("posts").document(post.id!).updateData(["likes": FieldValue.arrayUnion([user?.uid])])
+            }
+        } else {
+            // Fallback on earlier versions
+        }
+    }
+    
     func updatePosts(){
         let df = DateFormatter()
         df.dateFormat = "dd/MM/yy HH:mma"
+        
         let time = Date.init(timeIntervalSince1970: TimeInterval(integerLiteral: post.dateCreated?.seconds ?? 0))
         
         let now = df.string(from: time)
@@ -49,6 +63,7 @@ class HomeTableViewCell: UITableViewCell {
         
         displayUserAvatar(userId: post.author ?? "")
         countLikes()
+        getComments(postId: post.id ?? "")
     }
     
     func displayUserAvatar(userId: String) {
@@ -75,23 +90,26 @@ class HomeTableViewCell: UITableViewCell {
     }
     
     func getComments(postId: String){
-
-    }
-    
-    func displayPostImages(){
-        // no funciona por que el imageview ya no existe reemplazado por el collectionview
-        let storageRef = storage.reference()
-        let imagesRef = storageRef.child(post.author ?? "")
-        let img = post.pictures?[0] ?? ""
-        print(img)
-        let spaceRef = imagesRef.child("perfil")
-        
-        self.imgPost.sd_setImage(with: spaceRef, placeholderImage: UIImage(named: "logo")) { (image, error, typeCache, storageReference) in
-            let imageSize = image?.size ?? .zero
-            let newHeight = self.imgPost.frame.width * imageSize.height / imageSize.width
-            self.imgPost.frame = CGRect(x: 0, y: 0, width: self.imgPost.frame.width, height: newHeight)
-            self.postHeight.constant = newHeight
-            print(img)
+        db.collection("comments").document(postId)
+        .getDocument { (snapshot, error) in
+        if let error = error{
+            print("error: \(error)")
+        } else {
+            var comments = CommentBE()
+            do {
+                guard let data = snapshot?.data() else {
+                    return
+                }
+                var aaray: [CommentBE] = []
+                for item in data {
+                    let comment = try! FirestoreDecoder().decode(CommentBE.self, from: item.value as! [String : Any])
+                    aaray.append(comment)
+                }
+                print(aaray)
+            } catch let error {
+                print(error)
+            }
+        }
         }
     }
     
