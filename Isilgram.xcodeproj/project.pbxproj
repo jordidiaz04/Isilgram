@@ -33,6 +33,7 @@
 		36B993B22377523C00F73823 /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36B993B12377523C00F73823 /* Constant.swift */; };
 		36B993B4237753BE00F73823 /* Function.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36B993B3237753BE00F73823 /* Function.swift */; };
 		36D0BCF9238059D600676C0D /* PublishViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36D0BCF8238059D600676C0D /* PublishViewController.swift */; };
+		36D0DE5523A0AFCC0075D7FB /* CommentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36D0DE5423A0AFCC0075D7FB /* CommentTableViewCell.swift */; };
 		36D429EB2378AA8000F1E7D2 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 36D429EA2378AA8000F1E7D2 /* GoogleService-Info.plist */; };
 		36D429ED2378CFA100F1E7D2 /* CSMUIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36D429EC2378CFA100F1E7D2 /* CSMUIViewController.swift */; };
 		36D4E0022376DAEB001194D5 /* CSMTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36D4DFE62376DAEB001194D5 /* CSMTextView.swift */; };
@@ -99,6 +100,7 @@
 		36B993B12377523C00F73823 /* Constant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
 		36B993B3237753BE00F73823 /* Function.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Function.swift; sourceTree = "<group>"; };
 		36D0BCF8238059D600676C0D /* PublishViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PublishViewController.swift; sourceTree = "<group>"; };
+		36D0DE5423A0AFCC0075D7FB /* CommentTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentTableViewCell.swift; sourceTree = "<group>"; };
 		36D429EA2378AA8000F1E7D2 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		36D429EC2378CFA100F1E7D2 /* CSMUIViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CSMUIViewController.swift; sourceTree = "<group>"; };
 		36D4DFE62376DAEB001194D5 /* CSMTextView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CSMTextView.swift; sourceTree = "<group>"; };
@@ -344,6 +346,7 @@
 				1F90F631239DF3D200E3CEEC /* HomePostImageCollectionViewCell.swift */,
 				1F90F633239E287F00E3CEEC /* CategoryHomeCollectionViewCell.swift */,
 				36E288DC23A05451004EF85E /* CommentViewController.swift */,
+				36D0DE5423A0AFCC0075D7FB /* CommentTableViewCell.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -493,6 +496,7 @@
 				36D4E00A2376DAEB001194D5 /* CSMLocalNotificationManager.swift in Sources */,
 				36B993B22377523C00F73823 /* Constant.swift in Sources */,
 				36E288DD23A05451004EF85E /* CommentViewController.swift in Sources */,
+				36D0DE5523A0AFCC0075D7FB /* CommentTableViewCell.swift in Sources */,
 				36D4E0072376DAEB001194D5 /* CSMColorManager.swift in Sources */,
 				36DB1E352379203F00520BA3 /* AccountViewController.swift in Sources */,
 				36D4E0032376DAEB001194D5 /* CSMLocalAuthentication.swift in Sources */,

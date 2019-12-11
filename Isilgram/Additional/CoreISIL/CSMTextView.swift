@@ -122,7 +122,7 @@ public class CSMTextView: UITextView {
     
     private var edgeMargin : UIEdgeInsets = UIEdgeInsets(top: 0.0, left: 0.0, bottom: 0.0, right: 0.0)
     
-    @IBInspectable public var counterColor: UIColor = .black {
+    /*@IBInspectable public var counterColor: UIColor = .black {
         didSet {
             updateCounter()
         }
@@ -337,6 +337,6 @@ public class CSMTextView: UITextView {
         self.layer.borderColor      = self.borderColor.cgColor
         self.layer.borderWidth      = self.borderWidth
         self.layer.masksToBounds    = false
-    }
+    }*/
 }
 

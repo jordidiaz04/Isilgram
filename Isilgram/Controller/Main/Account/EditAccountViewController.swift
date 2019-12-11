@@ -221,7 +221,7 @@ class EditAccountViewController: UIViewController {
     }
     func loadUserPhoto() {
         let refStorage = stgUser.child(user.uid).child("perfil")
-        self.ivPhoto.sd_setImage(with: refStorage)
+        ivPhoto.sd_setImage(with: refStorage, placeholderImage: UIImage(named: "img_default"))
     }
     func checkFields() -> Bool {
         var result = true
