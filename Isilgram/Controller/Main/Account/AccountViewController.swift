@@ -82,7 +82,7 @@ class AccountViewController: UIViewController {
     }
     func loadUserPhoto() {
         let refPhoto = stgUser.child(user.uid).child("perfil")
-        ivPhoto.sd_setImage(with: refPhoto, placeholderImage: UIImage(named: "logo"))
+        ivPhoto.sd_setImage(with: refPhoto, placeholderImage: UIImage(named: "img_default"))
     }
     func loadMyPosts() {
         dbPosts.whereField("author", isEqualTo: user.uid).addSnapshotListener { (snapshot, err) in

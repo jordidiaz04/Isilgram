@@ -31,7 +31,6 @@ class HomeViewController: UIViewController {
         
         
         self.navigationItem.hidesBackButton = true
-        Function.removeLastestViews(context: self)
         tvPrincipal.rowHeight = UITableView.automaticDimension
         tvPrincipal.estimatedRowHeight = 500
 
@@ -100,6 +99,7 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource{
         let cellIdentifier = "HomeTableViewCell"
         
         let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as! HomeTableViewCell
+        cell.context = self
         cell.post = self.posts[indexPath.row]
         cell.cvPostImg.reloadData()
         cell.cvPostImg.collectionViewLayout.invalidateLayout()

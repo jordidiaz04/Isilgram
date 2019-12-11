@@ -145,7 +145,8 @@ class Function {
     }
     
     static func removeLastestViews(context: UIViewController){
-        let countViews = (context.navigationController?.viewControllers.count)! - 2
-        context.navigationController?.viewControllers.removeSubrange(0...countViews)
+        //context.navigationController?.viewControllers.removeFirst()
+        print("Aca estan los stacks")
+        print(context.navigationController?.viewControllers)
     }
 }
