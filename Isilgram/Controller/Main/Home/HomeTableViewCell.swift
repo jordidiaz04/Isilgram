@@ -26,6 +26,7 @@ class HomeTableViewCell: UITableViewCell {
     @IBOutlet weak var flowLayout: UICollectionViewFlowLayout!
     @IBOutlet weak var heighHastag: NSLayoutConstraint!
     
+    @IBOutlet weak var btnHeart: UIButton!
     @IBOutlet weak var imgIndicator: UIPageControl!
     let storage = Storage.storage()
     let db = Firestore.firestore()
@@ -33,6 +34,7 @@ class HomeTableViewCell: UITableViewCell {
     let user = Auth.auth().currentUser
     var currentPage = 0
     var comments: [CommentBE] = []
+    var hearts: [String] = []
     
     var post: PostBE! {
         didSet{
@@ -40,6 +42,20 @@ class HomeTableViewCell: UITableViewCell {
         }
     }
     
+    @IBAction func giveHeart(_ sender: Any) {
+        if #available(iOS 13.0, *) {
+            if btnLikes.currentImage == UIImage(systemName: "heart.fill") {
+                db.collection("userHearts").document(user!.uid).updateData(["hearts": FieldValue.arrayRemove([post.id])])
+                btnHeart.setImage(UIImage(systemName: "heart"), for: .normal)
+            }
+            else{
+                db.collection("userHearts").document(post.id!).updateData(["hearts": FieldValue.arrayUnion([post.id])])
+                btnHeart.setImage(UIImage(systemName: "heart.fill"), for: .normal)
+            }
+        } else {
+            // Fallback on earlier versions
+        }
+    }
     
     @IBAction func giveLike(_ sender: Any) {
         if #available(iOS 13.0, *) {
@@ -74,6 +90,7 @@ class HomeTableViewCell: UITableViewCell {
         displayUserAvatar(userId: post.author ?? "")
         countLikes()
         getComments(postId: post.id ?? "")
+        getHearts(userId: user?.uid ?? "")
     }
     
     func displayUserAvatar(userId: String) {
@@ -81,6 +98,9 @@ class HomeTableViewCell: UITableViewCell {
         let imagesRef = storageRef.child(userId)
         let spaceRef = imagesRef.child("perfil")
         self.imgAvatar.sd_setImage(with: spaceRef, placeholderImage: UIImage(named: "ic_person"))
+        self.imgAvatar.clipsToBounds = true
+        self.imgAvatar.layer.cornerRadius = 20
+        
     }
     
     func countLikes(){
@@ -130,6 +150,31 @@ class HomeTableViewCell: UITableViewCell {
         }
     }
     
+    func getHearts(userId: String){
+        db.collection("userHearts").document(userId)
+        .getDocument { (snapshot, error) in
+        if let error = error{
+            print("error: \(error)")
+        } else {
+            do {
+                guard let data = snapshot?.data() else {
+                    return
+                }
+                self.hearts.removeAll()
+                for item in data {
+                   // let comment = try! FirestoreDecoder().decode(CommentBE.self, from: item.value as! [String : Any])
+                   // self.comments.append(comment)
+                    print(item)
+                }
+                self.countComments()
+                print(self.comments)
+            } catch let error {
+                print(error)
+            }
+        }
+        }
+    }
+    
     func countComments(){
         btnComments.setTitle("\(comments.count)", for: .normal)
     }
@@ -161,7 +206,7 @@ extension HomeTableViewCell: UICollectionViewDelegate, UICollectionViewDataSourc
             let cellIdentifier = "HomePostImageCollectionViewCell"
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellIdentifier, for: indexPath) as! HomePostImageCollectionViewCell
             
-            let imgData = ImageBE(userId: post.author ?? "", imageUrl: post.pictures?[indexPath.row] ?? "")
+            let imgData = ImageBE(userId: post.author ?? "", postId: post.id ?? "",  imageUrl: post.pictures?[indexPath.row] ?? "")
             
             cell.imageBE = imgData
             cell.layoutIfNeeded()

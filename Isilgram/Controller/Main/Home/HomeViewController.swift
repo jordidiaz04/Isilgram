@@ -17,6 +17,14 @@ class HomeViewController: UIViewController {
 
     @IBOutlet weak var tvPrincipal: UITableView!
     
+    override func viewWillAppear(_ animated: Bool) {
+       super.viewWillAppear(animated)
+       tvPrincipal.rowHeight = UITableView.automaticDimension
+       tvPrincipal.estimatedRowHeight = 500
+
+       getPosts()
+        tvPrincipal.reloadData()
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -31,7 +39,7 @@ class HomeViewController: UIViewController {
     }
     
     func getPosts(){
-        db.collection("posts")
+        db.collection("posts").order(by: "dateCreated", descending: true)
             .getDocuments { (snapshot, error) in
             if let error = error{
                 print("error: \(error)")
@@ -43,7 +51,8 @@ class HomeViewController: UIViewController {
                         post = try! FirestoreDecoder().decode(PostBE.self, from: document.data())
                         post.id = document.documentID
                         if post != nil.self {
-                            self.getUserName(id: post.author ?? "", post: post)
+                            self.posts.append(post)
+                            self.tvPrincipal.reloadData()
                             print(self.posts)
                         }
                     } catch let error {
@@ -96,6 +105,7 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource{
         cell.cvPostImg.collectionViewLayout.invalidateLayout()
         cell.cvHashtags.reloadData()
         cell.cvHashtags.collectionViewLayout.invalidateLayout()
+        cell.imgIndicator.numberOfPages = 0
         self.tvPrincipal.sizeToFit()
         
         return cell
@@ -103,5 +113,6 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource{
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return UITableView.automaticDimension
     }
+    
     
 }

@@ -24,7 +24,7 @@ class PostCollectionViewCell: UICollectionViewCell {
     //MARK: Created Functions
     func loadImages() {
         let stgPost: StorageReference! = Storage.storage().reference().child(objPost.author!)
-        let refPhoto = stgPost.child(objPost.pictures!.first!)
+        let refPhoto = stgPost.child(objPost.pictures?.first ?? "")
         ivPost.sd_setImage(with: refPhoto, placeholderImage: UIImage(named: "img_default"))
     }
 }

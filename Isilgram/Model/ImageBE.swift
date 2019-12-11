@@ -10,5 +10,6 @@ import UIKit
 
 struct ImageBE: Codable {
     var userId = ""
+    var postId = ""
     var imageUrl = ""
 }

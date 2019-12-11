@@ -24,17 +24,21 @@ class HomePostImageCollectionViewCell: UICollectionViewCell {
     
     func loadImages() {
         let storageRef = storage.reference()
-        let imagesRef = storageRef.child(imageBE.userId)
+        let userid = imageBE.userId
         let img = imageBE.imageUrl
+        let postid = imageBE.postId
         print(img)
-        let spaceRef = imagesRef.child("perfil")
+        let imagesRef = storageRef.child(userid).child(postid)
+
+        let spaceRef = imagesRef.child(img)
         
-        self.imgPost.sd_setImage(with: spaceRef, placeholderImage: UIImage(named: "logo")) { (image, error, typeCache, storageReference) in
+        self.imgPost.sd_setImage(with: spaceRef, placeholderImage: UIImage(named: "img_default")) { (image, error, typeCache, storageReference) in
             let imageSize = image?.size ?? .zero
             let newHeight = UIScreen.main.bounds.width * imageSize.height / UIScreen.main.bounds.width
             self.imgPost.frame = CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: newHeight)
             self.height4Images.constant = newHeight
             print(img)
+            print(error)
         }
         
     }

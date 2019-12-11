@@ -9,16 +9,19 @@
 import UIKit
 import FirebaseFirestore
 import FirebaseAuth
+import FirebaseUI
 import CodableFirebase
 
 class PublishViewController: UIViewController {
-    @IBOutlet weak var ivPhoto: CSMImageView!
     @IBOutlet weak var btnEnviarPost: UIButton!
     @IBAction func enviarPost(_ sender: Any) {
+        btnEnviarPost.isEnabled = false
         uploadData()
     }
     @IBOutlet weak var tvMessage: UITextView!
     @IBOutlet weak var scrollImages: UIScrollView!
+    var stgImages: StorageReference!
+
     
     @IBOutlet weak var tvHashtags: UITextView!
     var imagePickerController: UIImagePickerController?
@@ -43,6 +46,7 @@ class PublishViewController: UIViewController {
         tvHashtags.sizeToFit()
         tvHashtags.layoutIfNeeded()
         tvHashtags.clipsToBounds = true
+        
     }
     
     
@@ -81,6 +85,7 @@ class PublishViewController: UIViewController {
         controller.sourceType = source
         self.present(controller, animated: true)
     }
+    
     func uploadData() {
         var ref: DocumentReference? = nil
         let hashtags = tvHashtags.text.trimmingCharacters(in: .whitespacesAndNewlines)
@@ -90,14 +95,17 @@ class PublishViewController: UIViewController {
         
         ref = db.collection("posts").addDocument(data: [
             "author": user?.uid,
+            "authorDisplayName": user?.displayName,
             "dateCreated": FieldValue.serverTimestamp(),
             "message": tvMessage.text ?? "",
             "categories": tags,
-            "pictures": ["perfil"]
+            "pictures": arrayImageNames,
+            "likes" : [user?.uid]
         ]) { err in
             if let err = err {
                 print("Error adding document: \(err)")
             } else {
+                self.uploadPictures(userId: self.user!.uid, postId: ref!.documentID, index: 0)
                 print("Document added with ID: \(ref!.documentID)")
             }
         }
@@ -106,13 +114,13 @@ class PublishViewController: UIViewController {
     func setImagesInSlider(){
         let imagesCount = arrayImages.count
          for index in 0..<imagesCount {
-             frame.origin.x = self.scrollImages.frame.size.width * CGFloat(index)
-             let originX = self.scrollImages.frame.size.width * CGFloat(index)
-             frame.size = self.scrollImages.frame.size
+             frame.origin.x = 100 * CGFloat(index)
+             frame.size = CGSize(width: 100, height: 100)
              let imageView = UIImageView(frame: frame)
              imageView.clipsToBounds = true
-             imageView.contentMode = .scaleAspectFit
+            imageView.contentMode = .scaleAspectFill
             imageView.image = arrayImages[index]
+            
             
              let img = arrayImages[index]
             
@@ -121,10 +129,39 @@ class PublishViewController: UIViewController {
              self.scrollImages.addSubview(imageView)
              }
          
-         scrollImages.contentSize = CGSize(width: (scrollImages.frame.size.width * CGFloat(imagesCount)), height: scrollImages.frame.size.height)
+         scrollImages.contentSize = CGSize(width: (100 * CGFloat(imagesCount)), height: scrollImages.frame.size.height)
          self.view.layoutIfNeeded()
          
     }
+    
+    func uploadPictures(userId: String, postId:String, index: Int) {
+        stgImages = Storage.storage().reference().child(userId).child(postId)
+        if index < arrayImages.count{
+            let data = arrayImages[index].jpegData(compressionQuality: 0.3)
+            let metaData = StorageMetadata()
+            metaData.contentType = "image/jpeg"
+            let refUserPhoto = stgImages.child("\(index).jpg")
+            print("Imagen: \(index)")
+            SDWebImageManager.shared.imageCache.clear(with: .all, completion: nil)
+            
+            refUserPhoto.putData(data!, metadata: metaData) { (meta, err) in
+                if err != nil {
+                    print(err)
+                }
+                else {
+                    self.uploadPictures(userId: userId, postId: postId, index: index+1)
+                    print("Imagen: \(index + 1) subida")
+                }
+            }
+        } else {
+            //enviar a home view controllker
+            let vc = storyboard?.instantiateViewController(withIdentifier: "PublishViewController") as? PublishViewController
+            self.navigationController?.pushViewController(vc!, animated: false)
+            Function.showAlert(context: self, title: "exito", message: "publicado", button: "Aceptar")
+        }
+    }
+    
+
 }
 
 extension PublishViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
@@ -135,7 +172,10 @@ extension PublishViewController: UIImagePickerControllerDelegate, UINavigationCo
         }
         
         self.arrayImages.append(image)
-        print(arrayImages)
+        self.arrayImageNames.append("\(arrayImages.count-1).jpg")
+
+        print(arrayImages!)
+        print(arrayImageNames!)
         setImagesInSlider()
         
         picker.dismiss(animated: true) {

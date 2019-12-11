@@ -13,6 +13,7 @@ import FirebaseFirestore
 struct PostBE: Codable {
     var id: String? = ""
     var author: String? = ""
+    var authorDisplayName: String? = ""
     var authorDetails: UserBE? = UserBE()
     var categories: [String]? = []
     var dateCreated: Timestamp?

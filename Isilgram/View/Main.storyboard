@@ -697,7 +697,7 @@
         <!--Inicio-->
         <scene sceneID="EI1-Uu-kBx">
             <objects>
-                <viewController id="MMs-Jb-8fF" customClass="HomeViewController" customModule="Isilgram" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="HomeViewController" id="MMs-Jb-8fF" customClass="HomeViewController" customModule="Isilgram" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="2ej-xy-HVz">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="900"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -719,7 +719,7 @@
                                                         <view contentMode="scaleToFill" horizontalHuggingPriority="1" translatesAutoresizingMaskIntoConstraints="NO" id="YET-vZ-11t">
                                                             <rect key="frame" x="0.0" y="0.0" width="320" height="48"/>
                                                             <subviews>
-                                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="img_default" translatesAutoresizingMaskIntoConstraints="NO" id="fqa-cI-bW4">
+                                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="img_default" translatesAutoresizingMaskIntoConstraints="NO" id="fqa-cI-bW4" customClass="CSMImageView" customModule="Isilgram" customModuleProvider="target">
                                                                     <rect key="frame" x="8" y="4" width="40" height="40"/>
                                                                     <constraints>
                                                                         <constraint firstAttribute="height" constant="40" id="GOA-MN-jOC"/>
@@ -730,6 +730,9 @@
                                                                     <rect key="frame" x="295.5" y="0.0" width="20.5" height="48"/>
                                                                     <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                                                     <state key="normal" image="heart" catalog="system"/>
+                                                                    <connections>
+                                                                        <action selector="giveHeart:" destination="uGy-Cd-lMP" eventType="touchUpInside" id="xB6-24-mFY"/>
+                                                                    </connections>
                                                                 </button>
                                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="f5O-55-Yav">
                                                                     <rect key="frame" x="56" y="4" width="235.5" height="40"/>
@@ -875,7 +878,7 @@
                                                         </view>
                                                         <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="ezO-4b-ThF">
                                                             <rect key="frame" x="0.0" y="48" width="320" height="300"/>
-                                                            <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                                            <color key="backgroundColor" systemColor="secondarySystemBackgroundColor" red="0.94901960780000005" green="0.94901960780000005" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" priority="999" constant="300" id="5yz-be-5V8"/>
                                                             </constraints>
@@ -943,6 +946,7 @@
                                                 </tableViewCellContentView>
                                                 <connections>
                                                     <outlet property="btnComments" destination="SX1-Fp-zkU" id="O3H-pR-OBz"/>
+                                                    <outlet property="btnHeart" destination="HLN-bt-fWE" id="d4F-5c-xLN"/>
                                                     <outlet property="btnLikes" destination="exF-qg-RBT" id="FVn-Vu-1pQ"/>
                                                     <outlet property="cvHashtags" destination="vcn-9i-GPL" id="G6R-mL-wH1"/>
                                                     <outlet property="cvPostImg" destination="ezO-4b-ThF" id="x5o-bA-pIK"/>
@@ -995,7 +999,7 @@
         <scene sceneID="Gh7-dJ-GBN">
             <objects>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mSp-DB-qBE" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-                <viewController id="SEd-7e-yjg" customClass="PublishViewController" customModule="Isilgram" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="PublishViewController" id="SEd-7e-yjg" customClass="PublishViewController" customModule="Isilgram" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="DPJ-yF-4EP">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="700"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -1063,7 +1067,7 @@
                                                 </constraints>
                                                 <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                                <textInputTraits key="textInputTraits"/>
                                                 <userDefinedRuntimeAttributes>
                                                     <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
                                                         <color key="value" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
@@ -1248,11 +1252,11 @@
             </objects>
             <point key="canvasLocation" x="348.75" y="846.12676056338034"/>
         </scene>
-        <!--Item-->
+        <!--Publicar-->
         <scene sceneID="HqM-RQ-P9j">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="yma-wf-Xhs" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" image="ic_publish" id="ipe-ph-FiO"/>
+                    <tabBarItem key="tabBarItem" title="Publicar" image="ic_publish" id="ipe-ph-FiO"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="DaR-7m-Q4D">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
