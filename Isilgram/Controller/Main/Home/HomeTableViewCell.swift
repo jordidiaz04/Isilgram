@@ -14,12 +14,13 @@ import FirebaseFirestore
 import CodableFirebase
 
 class HomeTableViewCell: UITableViewCell {
+    @IBOutlet weak var headerView: UIView!
     @IBOutlet weak var txtUsername: UILabel!
     @IBOutlet weak var txtMessage: UILabel!
     @IBOutlet weak var imgAvatar: UIImageView!
     @IBOutlet weak var postHeight: NSLayoutConstraint!
     @IBOutlet weak var btnLikes: UIButton!
-    @IBOutlet weak var btnComments: UIButton!
+    @IBOutlet weak var btnComments: UIButton?
     @IBOutlet weak var cvPostImg: UICollectionView!
     @IBOutlet weak var txtDate: UILabel!
     @IBOutlet weak var cvHashtags: UICollectionView!
@@ -35,6 +36,7 @@ class HomeTableViewCell: UITableViewCell {
     var currentPage = 0
     var comments: [CommentBE] = []
     var hearts: [String] = []
+    var author: String = ""
     
     var context: UIViewController!
     var post: PostBE! {
@@ -45,12 +47,12 @@ class HomeTableViewCell: UITableViewCell {
     
     @IBAction func giveHeart(_ sender: Any) {
         if #available(iOS 13.0, *) {
-            if btnLikes.currentImage == UIImage(systemName: "heart.fill") {
+            if btnHeart.currentImage == UIImage(systemName: "heart.fill") {
                 db.collection("userHearts").document(user!.uid).updateData(["hearts": FieldValue.arrayRemove([post.id])])
                 btnHeart.setImage(UIImage(systemName: "heart"), for: .normal)
             }
             else{
-                db.collection("userHearts").document(post.id!).updateData(["hearts": FieldValue.arrayUnion([post.id])])
+                db.collection("userHearts").document(user!.uid).updateData(["hearts": FieldValue.arrayUnion([post.id])])
                 btnHeart.setImage(UIImage(systemName: "heart.fill"), for: .normal)
             }
         } else {
@@ -76,6 +78,7 @@ class HomeTableViewCell: UITableViewCell {
             // Fallback on earlier versions
         }
     }
+    
     @IBAction func seeComments(_ sender: Any) {
         let storyboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
         if #available(iOS 13.0, *) {
@@ -87,6 +90,7 @@ class HomeTableViewCell: UITableViewCell {
         }
     }
     
+    
     func updatePosts(){
         let df = DateFormatter()
         df.dateFormat = "dd/MM/yy HH:mma"
@@ -95,11 +99,12 @@ class HomeTableViewCell: UITableViewCell {
         
         let now = df.string(from: time)
         txtDate.text = now
-        txtUsername.text = post.authorDetails?.nickName
         txtMessage.text = post.message
+        txtUsername.text = ""
         
         displayUserAvatar(userId: post.author ?? "")
         countLikes()
+        getUserName(id: post.author ?? "")
         getComments(postId: post.id ?? "")
         getHearts(userId: user?.uid ?? "")
     }
@@ -112,6 +117,29 @@ class HomeTableViewCell: UITableViewCell {
         self.imgAvatar.clipsToBounds = true
         self.imgAvatar.layer.cornerRadius = 20
         
+    }
+    
+    func getUserName(id: String){
+        db.collection("users").document(id)
+            .getDocument { (snapshot, error) in
+            if let error = error{
+                print("error: \(error)")
+            } else {
+                var userData = UserBE()
+                do {
+                    guard let data = snapshot?.data() else {
+                        return
+                    }
+                    userData = try! FirestoreDecoder().decode(UserBE.self, from: data)
+                    if userData != nil.self {
+                        self.author = userData.nickName
+                        self.txtUsername.text = self.author
+                    }
+                } catch let error {
+                    print(error)
+                }
+            }
+            }
     }
     
     func countLikes(){
@@ -148,10 +176,14 @@ class HomeTableViewCell: UITableViewCell {
                     return
                 }
                 self.comments.removeAll()
-                for item in data {
-                    let comment = try! FirestoreDecoder().decode(CommentBE.self, from: item.value as! [String : Any])
-                    self.comments.append(comment)
+                
+                if data.count > 0 {
+                    for item in data {
+                        let comment = try! FirestoreDecoder().decode(CommentBE.self, from: item.value as! [String : Any])
+                        self.comments.append(comment)
+                    }
                 }
+                
                 self.countComments()
                 print(self.comments)
             } catch let error {
@@ -187,7 +219,7 @@ class HomeTableViewCell: UITableViewCell {
     }
     
     func countComments(){
-        btnComments.setTitle("\(comments.count)", for: .normal)
+        btnComments?.setTitle("\(comments.count)", for: .normal)
     }
 
     override func awakeFromNib() {

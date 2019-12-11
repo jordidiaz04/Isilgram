@@ -192,7 +192,6 @@
 			children = (
 				36AE8BD323762A6B005B1608 /* UserBE.swift */,
 				FBE4B035238EBF0D004E9B50 /* PostBE.swift */,
-				1F90F636239EC03300E3CEEC /* CommentBE.swift */,
 				1F90F638239F00B200E3CEEC /* ImageBE.swift */,
 			);
 			path = Model;
@@ -201,6 +200,7 @@
 		36AE8BD123762A2B005B1608 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				1F90F636239EC03300E3CEEC /* CommentBE.swift */,
 				36AE8BD523762AFD005B1608 /* Login.storyboard */,
 				36AE8BD723762B07005B1608 /* Main.storyboard */,
 			);

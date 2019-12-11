@@ -9,11 +9,14 @@
 import UIKit
 import FirebaseFirestore
 import CodableFirebase
+import FirebaseAuth
 
 class CommentViewController: UIViewController {
+    @IBOutlet weak var txtMessage: CSMTextView!
     @IBOutlet weak var tblComment: UITableView!
     
     let db = Firestore.firestore()
+    let user = Auth.auth().currentUser
     var idPost: String! = ""
     var comments: [CommentBE] = []
     
@@ -27,31 +30,40 @@ class CommentViewController: UIViewController {
     
     
     @IBAction func sendComment(_ sender: Any) {
+        let index = comments.count
+        db.collection("comments").document(idPost).setData([
+            "\(index)": [
+                "author": user?.uid,
+                "message": txtMessage.text.trim(),
+                "dateCreated": FieldValue.serverTimestamp()
+            ]
+        ])
+        txtMessage.text = ""
     }
     
     
     func getComments(postId: String){
         db.collection("comments").document(postId)
-        .getDocument { (snapshot, error) in
-        if let error = error{
-            print("error: \(error)")
-        } else {
-            do {
-                guard let data = snapshot?.data() else {
-                    return
+            .addSnapshotListener({ (snapshot, error) in
+                if let error = error{
+                    print("error: \(error)")
+                } else {
+                    do {
+                        guard let data = snapshot?.data() else {
+                            return
+                        }
+                        self.comments.removeAll()
+                        for item in data {
+                            let comment = try! FirestoreDecoder().decode(CommentBE.self, from: item.value as! [String : Any])
+                            self.comments.append(comment)
+                        }
+                        
+                        self.tblComment.reloadData()
+                    } catch let error {
+                        print(error)
+                    }
                 }
-                self.comments.removeAll()
-                for item in data {
-                    let comment = try! FirestoreDecoder().decode(CommentBE.self, from: item.value as! [String : Any])
-                    self.comments.append(comment)
-                }
-                
-                self.tblComment.reloadData()
-            } catch let error {
-                print(error)
-            }
-        }
-        }
+            })
     }
 }
 

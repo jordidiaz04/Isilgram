@@ -37,6 +37,8 @@ class PublishViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.hideKeyboardWhenTappedAround()
 
         tvMessage.isScrollEnabled = true
         tvMessage.sizeToFit()
@@ -92,10 +94,8 @@ class PublishViewController: UIViewController {
         let delimiter = " "
         var tags = hashtags.components(separatedBy: delimiter)
         
-        
         ref = db.collection("posts").addDocument(data: [
             "author": user?.uid,
-            "authorDisplayName": user?.displayName,
             "dateCreated": FieldValue.serverTimestamp(),
             "message": tvMessage.text ?? "",
             "categories": tags,
@@ -106,6 +106,7 @@ class PublishViewController: UIViewController {
                 print("Error adding document: \(err)")
             } else {
                 self.uploadPictures(userId: self.user!.uid, postId: ref!.documentID, index: 0)
+
                 print("Document added with ID: \(ref!.documentID)")
             }
         }

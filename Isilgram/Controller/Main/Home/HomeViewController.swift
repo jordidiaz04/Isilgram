@@ -13,17 +13,16 @@ import CodableFirebase
 
 class HomeViewController: UIViewController {
     var posts = [PostBE]()
+    var postsNuevos = [PostBE]()
+    
     let db = Firestore.firestore()
 
     @IBOutlet weak var tvPrincipal: UITableView!
     
     override func viewWillAppear(_ animated: Bool) {
        super.viewWillAppear(animated)
-       tvPrincipal.rowHeight = UITableView.automaticDimension
-       tvPrincipal.estimatedRowHeight = 500
-
-       getPosts()
-        tvPrincipal.reloadData()
+        getPostsNuevos()
+    
     }
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -62,31 +61,34 @@ class HomeViewController: UIViewController {
             }
     }
     
-    func getUserName(id: String, post: PostBE){
-        db.collection("users").document(id)
-            .getDocument { (snapshot, error) in
+    func getPostsNuevos(){
+        db.collection("posts").order(by: "dateCreated", descending: true)
+            .getDocuments { (snapshot, error) in
             if let error = error{
                 print("error: \(error)")
             } else {
-                var user = UserBE()
-                do {
-                    guard let data = snapshot?.data() else {
-                        return
+                for document in snapshot!.documents {
+                    print(document)
+                    var post = PostBE()
+                    do {
+                        post = try! FirestoreDecoder().decode(PostBE.self, from: document.data())
+                        post.id = document.documentID
+                        if post != nil.self {
+                            self.postsNuevos.append(post)
+                        }
+                    } catch let error {
+                        print(error)
                     }
-                    user = try! FirestoreDecoder().decode(UserBE.self, from: data)
-                    if user != nil.self {
-                        var post = post
-                        post.authorDetails = user
-                        self.posts.append(post)
-                        self.tvPrincipal.reloadData()
-                        print(self.posts)
-                    }
-                } catch let error {
-                    print(error)
+                }
+                if self.posts.count != self.postsNuevos.count {
+                    self.posts.removeAll()
+                    self.getPosts()
+                    self.tvPrincipal.reloadData()
                 }
             }
             }
     }
+    
     
 
 }

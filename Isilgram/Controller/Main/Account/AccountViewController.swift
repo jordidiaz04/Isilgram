@@ -91,7 +91,8 @@ class AccountViewController: UIViewController {
             }
             else {
                 for document in snapshot!.documents {
-                    let objPostBE = try! FirestoreDecoder().decode(PostBE.self, from: document.data())
+                    var objPostBE = try! FirestoreDecoder().decode(PostBE.self, from: document.data())
+                    objPostBE.id = document.documentID
                     self.arrayPosts.append(objPostBE)
                 }
                 

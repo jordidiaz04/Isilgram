@@ -11,7 +11,6 @@ import CodableFirebase
 import FirebaseFirestore
 
 struct CommentBE: Codable {
-    var id: String? = ""
     var author: String? = ""
     var dateCreated: Timestamp?
     var message: String? = ""
