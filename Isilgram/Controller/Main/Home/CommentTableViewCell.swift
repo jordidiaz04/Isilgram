@@ -28,6 +28,7 @@ class CommentTableViewCell: UITableViewCell {
     }
     
     func updateData() {
+        ivPhoto.clipsToBounds = true
         let df = DateFormatter()
         df.dateFormat = "dd/MM/yy HH:mma"
         let time = Date.init(timeIntervalSince1970: TimeInterval(integerLiteral: objCommentBE.dateCreated?.seconds ?? 0))
@@ -50,12 +51,12 @@ class CommentTableViewCell: UITableViewCell {
                 
                 let objUserBE = try! FirestoreDecoder().decode(UserBE.self, from: data)
                 self.lblUsername.text = objUserBE.nickName
-                self.showPhoto(imageName: objUserBE.namePhoto)
+                self.showPhoto(idAuthor: objUserBE.id)
             }
         }
     }
-    func showPhoto(imageName: String) {
-        let refPhoto = stgUser.child(imageName).child("perfil")
+    func showPhoto(idAuthor: String) {
+        let refPhoto = stgUser.child(idAuthor).child("perfil")
         ivPhoto.sd_setImage(with: refPhoto, placeholderImage: UIImage(named: "img_default"))
     }
 

@@ -25,6 +25,11 @@ class CommentViewController: UIViewController {
         getComments(postId: idPost)
     }
     
+    
+    @IBAction func sendComment(_ sender: Any) {
+    }
+    
+    
     func getComments(postId: String){
         db.collection("comments").document(postId)
         .getDocument { (snapshot, error) in
